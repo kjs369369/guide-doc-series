@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#efe1c6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="85%" cy="10%" r="65%">
+      <stop offset="0" stop-color="#d9b978" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#d9b978" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="54" y="54" width="1092" height="522" rx="12" fill="none" stroke="#a6782a" stroke-width="2"/>
+  <rect x="86" y="92" width="112" height="6" fill="#a6782a"/>
+  <text x="86" y="142" fill="#8b6422" font-size="28" font-weight="700" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif">가이드문서 시리즈</text>
+  <text x="86" y="258" fill="#171717" font-size="72" font-weight="800" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif">Claude Cowork</text>
+  <text x="86" y="346" fill="#171717" font-size="64" font-weight="800" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif">실습 필수 사전 설치 가이드</text>
+  <text x="88" y="426" fill="#514b43" font-size="30" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif">수업 전에 설치와 환경 점검을 한 번에 완료하세요.</text>
+  <line x1="86" y1="480" x2="1114" y2="480" stroke="#d4c4a8"/>
+  <text x="86" y="530" fill="#171717" font-size="25" font-weight="700" font-family="Apple SD Gothic Neo, Noto Sans KR, sans-serif">AICLab · 김진수</text>
+</svg>
