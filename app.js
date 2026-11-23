@@ -24,6 +24,14 @@
     award: "수상·자격"
   };
 
+  const ASK_LABEL = {
+    geo: "GEO 컨설팅 문의",
+    edu: "AI 특강·워크숍 문의",
+    book: "강연·집필 문의",
+    art: "AI 아트 협업 문의",
+    award: "강연 문의"
+  };
+
   const ASK_DEFAULT = {
     geo: "GEO마케팅 전략 컨설팅",
     edu: "기업·공공기관 AI 특강",
@@ -730,7 +738,7 @@
       mLink.removeAttribute("href");
     }
 
-    mAsk.textContent = `${CAT_LABEL[card.cat]} 문의하기`;
+    mAsk.textContent = ASK_LABEL[card.cat] || "이 분야로 문의하기";
     modal.hidden = false;
     document.body.classList.add("is-locked");
     modal.querySelector(".modal__panel").scrollTop = 0;
