@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>김진수 · AICLab | AI 교육 · GEO마케팅 · 업무 자동화</title>
+<meta name="description" content="AI 전문가 김진수 — 메이랜드AI비즈랩 대표, AICLab 소장. GEO마케팅 전략 컨설팅, 기업·공공기관 AI 특강, AI 에이전트·업무 자동화, AI 아트 전시. 누적 강의 500회+, 교육생 2,000명+, 저서 24권+." />
+<meta name="author" content="김진수" />
+<meta name="theme-color" content="#f7f2ea" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="김진수 · AICLab | AI 교육 · GEO마케팅" />
+<meta property="og:description" content="AI가 고객을 데려오는 시대, GEO마케팅으로 비즈니스의 언어를 바꿉니다. 생성형 AI가 인용하는 콘텐츠 설계와 비전공자 눈높이 AI 실전 교육." />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+/* ============================================================
+   김진수 · AICLab — 소개 웹앱
+   Palette: ink / cream / gold, with muted art tones
+   ============================================================ */
+
+:root {
+  --ink: #171310;
+  --ink-2: #2c2621;
+  --ink-3: #5a5148;
+  --muted: #7a7065;
+  --cream: #f6f1e8;
+  --cream-2: #efe7d8;
+  --paper: #fffdf8;
+  --gold: #b08d2e;
+  --gold-soft: #d9bd74;
+  --gold-pale: #efe0bd;
+  --line: rgba(23, 19, 16, 0.12);
+  --line-soft: rgba(23, 19, 16, 0.07);
+  --shadow-sm: 0 1px 2px rgba(23, 19, 16, 0.06), 0 6px 16px -8px rgba(23, 19, 16, 0.18);
+  --shadow-md: 0 2px 4px rgba(23, 19, 16, 0.06), 0 18px 40px -20px rgba(23, 19, 16, 0.35);
+  --shadow-lg: 0 30px 80px -30px rgba(23, 19, 16, 0.45);
+  --radius: 18px;
+  --radius-lg: 26px;
+  --header-h: 72px;
+  --wrap: 1200px;
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "맑은 고딕", "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Nanum Myeongjo", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.68;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+body.is-locked { overflow: hidden; }
+
+img, svg { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  line-height: 1.24;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+p { margin: 0; }
+ul, ol, dl, dd { margin: 0; padding: 0; }
+li { list-style: none; }
+
+em { font-style: normal; }
+
+::selection { background: var(--gold-pale); color: var(--ink); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(18px, 4vw, 44px);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 200;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: top 0.2s var(--ease);
+}
+.skip-link:focus { top: 12px; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ───────────── Buttons & chips ───────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease),
+    color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 0 10px 26px -14px rgba(23, 19, 16, 0.8);
+}
+.btn--primary:hover { background: #000; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(23, 19, 16, 0.28);
+}
+.btn--ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.btn--block { width: 100%; }
+
+.text-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.text-link:hover { border-color: currentColor; color: var(--ink); }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+}
+.chips li {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink-2);
+  background: rgba(255, 253, 248, 0.6);
+}
+.chips--tight li { font-size: 12.5px; padding: 6px 11px; }
+
+/* ───────────── Header ───────────── */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    border-color 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.site-header.is-stuck {
+  background: rgba(246, 241, 232, 0.86);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom-color: var(--line-soft);
+  box-shadow: 0 8px 30px -24px rgba(23, 19, 16, 0.5);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+.brand__mark { display: grid; place-items: center; color: var(--gold); }
+.brand__text { display: flex; align-items: baseline; gap: 7px; line-height: 1; }
+.brand__text strong { font-size: 17px; letter-spacing: -0.03em; }
+.brand__text span {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav > a {
+  position: relative;
+  font-size: 14.5px;
+  font-weight: 550;
+  color: var(--ink-2);
+  padding: 6px 0;
+  transition: color 0.2s var(--ease);
+}
+.nav > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1.5px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.28s var(--ease);
+}
+.nav > a:hover { color: var(--ink); }
+.nav > a:hover::after { width: 100%; }
+
+.nav__cta {
+  padding: 10px 20px !important;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream) !important;
+  font-weight: 650 !important;
+}
+.nav__cta::after { display: none; }
+.nav__cta:hover { background: var(--gold); color: var(--ink) !important; }
+
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.7);
+  cursor: pointer;
+  position: relative;
+}
+.burger span {
+  position: absolute;
+  left: 12px;
+  width: 20px;
+  height: 1.6px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+.burger span:nth-child(1) { top: 15px; }
+.burger span:nth-child(2) { top: 21px; }
+.burger span:nth-child(3) { top: 27px; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ───────────── Hero ───────────── */
+
+.hero {
+  position: relative;
+  padding: calc(var(--header-h) + clamp(40px, 7vw, 84px)) 0 clamp(48px, 7vw, 90px);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: min(760px, 78vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 50%, rgba(217, 189, 116, 0.36), transparent 62%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -30% -14%;
+  width: min(520px, 62vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 50%, rgba(47, 79, 69, 0.16), transparent 65%);
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 7px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.65);
+}
+.eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(176, 141, 46, 0.18);
+}
+
+.hero h1 {
+  margin: 22px 0 0;
+  font-size: clamp(28px, 3.5vw, 46px);
+  line-height: 1.24;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+  word-break: keep-all;
+  max-width: 15em;
+}
+.hero h1 em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold);
+  padding-right: 0.04em;
+}
+
+.hero__lead {
+  margin-top: 22px;
+  max-width: 34em;
+  font-size: clamp(15px, 1.3vw, 17px);
+  color: var(--ink-3);
+}
+.hero__lead strong { color: var(--ink); font-weight: 650; }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero__badges {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 38px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.hero__badges li { display: flex; flex-direction: column; gap: 3px; }
+.hero__badges strong {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.hero__badges sup { font-size: 0.52em; color: var(--gold); margin-left: 1px; top: -0.7em; }
+.hero__badges span { font-size: 12.5px; color: var(--muted); letter-spacing: 0.01em; }
+
+.hero__certs {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.hero__pins {
+  position: relative;
+  height: clamp(360px, 42vw, 500px);
+}
+.hero-pin {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 5px solid var(--paper);
+  background: var(--paper);
+  transition: transform 0.6s var(--ease);
+}
+.hero-pin svg { display: block; width: 100%; height: 100%; }
+.hero-pin--a { width: 44%; left: 2%; top: 4%; transform: rotate(-4deg); }
+.hero-pin--b { width: 46%; right: 4%; top: 22%; transform: rotate(3.5deg); z-index: 2; }
+.hero-pin--c { width: 40%; left: 16%; bottom: 0; transform: rotate(-1.5deg); z-index: 3; }
+.hero__pins:hover .hero-pin--a { transform: rotate(-6deg) translateY(-6px); }
+.hero__pins:hover .hero-pin--b { transform: rotate(5deg) translateY(-10px); }
+.hero__pins:hover .hero-pin--c { transform: rotate(-2deg) translateY(-4px); }
+
+.hero__scroll {
+  display: grid;
+  place-items: center;
+  margin-top: clamp(30px, 5vw, 54px);
+}
+.hero__scroll span {
+  width: 1px;
+  height: 54px;
+  background: linear-gradient(var(--ink), transparent);
+  opacity: 0.4;
+  animation: drop 2.4s var(--ease) infinite;
+}
+@keyframes drop {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  35% { transform: scaleY(1); opacity: 0.5; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+/* ───────────── Sections ───────────── */
+
+.section { padding: clamp(56px, 8vw, 110px) 0; position: relative; }
+
+.section__head { max-width: 760px; margin-bottom: clamp(30px, 4vw, 50px); }
+.section__head--row {
+  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.section__head--row > div { max-width: 640px; }
+
+.kicker {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.kicker--light { color: var(--gold-soft); }
+
+.section h2 {
+  font-size: clamp(25px, 3.2vw, 40px);
+  letter-spacing: -0.045em;
+}
+.section h2 em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold);
+}
+.section__lead {
+  margin-top: 16px;
+  color: var(--ink-3);
+  font-size: 16px;
+  max-width: 58ch;
+}
+
+/* ───────────── About ───────────── */
+
+.section--about { background: linear-gradient(180deg, transparent, rgba(255, 253, 248, 0.55) 30%, transparent); }
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(18px, 2.4vw, 28px);
+  align-items: start;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: clamp(22px, 2.6vw, 32px);
+  box-shadow: var(--shadow-sm);
+}
+
+.card--profile p { color: var(--ink-3); font-size: 14.8px; margin-top: 16px; }
+
+.profile__top { display: flex; align-items: center; gap: 16px; }
+.avatar {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--ink), #3b3126);
+  color: var(--gold-soft);
+  font-family: var(--font-serif);
+  font-size: 26px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(217, 189, 116, 0.35);
+}
+.profile__top h3 { font-size: 21px; }
+.profile__top h3 small {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.profile__role { font-size: 13.5px; color: var(--ink-3); margin-top: 2px; }
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.68;
+  letter-spacing: -0.01em;
+}
+.quote--inline {
+  margin: 22px 0 0;
+  padding: 16px 20px;
+  border-left: 2px solid var(--gold);
+  background: linear-gradient(90deg, rgba(239, 224, 189, 0.5), transparent);
+  color: var(--ink);
+  font-size: 16.5px;
+}
+
+.profile__facts { margin-top: 22px; border-top: 1px solid var(--line-soft); }
+.profile__facts > div {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13.6px;
+}
+.profile__facts dt { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.profile__facts dd { color: var(--ink-2); }
+
+.card--profile .chips { margin-top: 20px; }
+
+.about__pillars { display: grid; gap: clamp(12px, 1.6vw, 18px); }
+
+.card--pillar {
+  position: relative;
+  padding: clamp(20px, 2.2vw, 26px) clamp(22px, 2.4vw, 30px);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.card--pillar:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(176, 141, 46, 0.4);
+}
+.pillar__no {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+}
+.card--pillar h3 { font-size: 18px; margin-top: 6px; }
+.card--pillar p { margin-top: 9px; font-size: 14px; color: var(--ink-3); }
+
+.venues {
+  margin-top: clamp(28px, 3.4vw, 44px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.venues__label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.venues__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+.venues__list li {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  position: relative;
+  padding-left: 14px;
+}
+.venues__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.68em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+}
+
+/* ───────────── Portfolio ───────────── */
+
+.section--portfolio { background: var(--cream-2); }
+.section--portfolio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(23, 19, 16, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 82%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 82%, transparent);
+  pointer-events: none;
+}
+.section--portfolio > .wrap { position: relative; }
+
+.pin-count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: clamp(22px, 3vw, 34px);
+  position: sticky;
+  top: calc(var(--header-h) + 8px);
+  z-index: 20;
+  padding: 10px;
+  margin-inline: -10px;
+  border-radius: 999px;
+  background: rgba(239, 231, 216, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.chip {
+  padding: 9px 17px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 19, 16, 0.16);
+  background: rgba(255, 253, 248, 0.7);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.22s var(--ease), color 0.22s var(--ease),
+    border-color 0.22s var(--ease), transform 0.22s var(--ease);
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--ink); transform: translateY(-1px); }
+.chip.is-active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+/* Masonry via CSS columns */
+.masonry {
+  column-count: 4;
+  column-gap: clamp(14px, 1.6vw, 20px);
+}
+
+.pin {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
+  margin: 0 0 clamp(14px, 1.6vw, 20px);
+  padding: 0;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.32s var(--ease), box-shadow 0.32s var(--ease),
+    border-color 0.32s var(--ease);
+  animation: pinIn 0.5s var(--ease) both;
+}
+.pin:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(176, 141, 46, 0.45);
+}
+@keyframes pinIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pin.is-hidden { display: none; }
+
+.pin__visual {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+}
+.pin__visual svg { display: block; width: 100%; height: 100%; }
+.pin__visual > .book { position: absolute; inset: 0; }
+.pin__visual--auto { background: transparent; }
+.pin__visual--auto > .poster { position: relative; }
+
+/* ───────────── HTML 포스터 (인용·수치·단계·목록) ───────────── */
+
+.poster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  background: linear-gradient(152deg, var(--p-bg) 0%, var(--p-bg2) 100%);
+  color: var(--p-fg);
+  overflow: hidden;
+}
+.pin__visual--auto .poster { position: relative; inset: auto; min-height: 168px; }
+
+.poster__kicker {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.poster--quote { justify-content: space-between; gap: 14px; padding-top: 52px; }
+.poster__mark {
+  position: absolute;
+  top: 8px;
+  left: 18px;
+  font-family: var(--font-serif);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--p-accent);
+  opacity: 0.22;
+  display: block;
+  pointer-events: none;
+}
+.poster__text {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.35vw, 19px);
+  line-height: 1.58;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.poster__by {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.poster--stat { justify-content: center; gap: 16px; }
+.poster__nums { display: grid; gap: 12px; }
+.poster__nums > div { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.poster__nums strong {
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 780;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.poster__nums span { font-size: 11.5px; opacity: 0.7; letter-spacing: 0.02em; }
+.poster__foot { font-size: 10.5px; opacity: 0.55; line-height: 1.6; word-break: keep-all; }
+
+.poster--steps { gap: 12px; }
+.poster__steps { display: grid; gap: 11px; }
+.poster__steps li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; align-items: start; }
+.poster__steps li > span {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--p-accent);
+  padding-top: 1px;
+}
+.poster__steps strong { display: block; font-size: 13.5px; letter-spacing: -0.02em; }
+.poster__steps em {
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.5;
+  opacity: 0.62;
+  margin-top: 3px;
+  word-break: keep-all;
+}
+
+.poster--list { gap: 4px; }
+.poster__head {
+  display: block;
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -0.02em;
+  margin: 10px 0 11px;
+  word-break: keep-all;
+}
+.poster__items { display: grid; gap: 6px; }
+.poster__items li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  opacity: 0.86;
+  word-break: keep-all;
+}
+.poster__items li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--p-accent);
+}
+
+/* ───────────── 도서 커버 ───────────── */
+
+.book {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, var(--p-bg) 0%, var(--p-bg2) 100%);
+  color: var(--p-fg);
+  overflow: hidden;
+}
+.book__spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.16);
+}
+.book__face {
+  position: absolute;
+  inset: 0;
+  padding: 18px 16px 16px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.book__kicker {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.book__title {
+  margin-top: auto;
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.25vw, 18px);
+  line-height: 1.38;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+.book__rule {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--p-accent);
+  margin: 12px 0 9px;
+  opacity: 0.9;
+}
+.book__pub { font-size: 9px; letter-spacing: 0.05em; opacity: 0.66; }
+.book__author {
+  position: absolute;
+  right: 12px;
+  top: 18px;
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  opacity: 0.5;
+}
+
+.pin__body { padding: 15px 16px 17px; }
+.pin__cat {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.pin__title {
+  display: block;
+  margin-top: 6px;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.pin__sub {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.pin__more {
+  display: inline-flex;
+  margin-top: 12px;
+  font-size: 11.5px;
+  font-weight: 650;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  align-items: center;
+  gap: 5px;
+}
+.pin:hover .pin__more { color: var(--gold); }
+.pin__more::after { content: "↗"; font-size: 12px; }
+
+.noscript {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.noscript h3 { font-size: 16px; margin-bottom: 12px; }
+.noscript li { font-size: 14px; color: var(--ink-3); padding-left: 14px; position: relative; margin-bottom: 6px; }
+.noscript li::before { content: "·"; position: absolute; left: 2px; color: var(--gold); }
+
+/* ───────────── Books & awards ───────────── */
+
+.books__meta { font-size: 13px; color: var(--muted); letter-spacing: 0.06em; }
+
+.books__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.shelf-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  aspect-ratio: 3 / 4.2;
+}
+.shelf-item:hover { transform: translateY(-5px) rotate(-0.6deg); box-shadow: var(--shadow-md); }
+.shelf-item svg { display: block; width: 100%; height: 100%; }
+
+.awards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+  margin-top: clamp(26px, 3.4vw, 40px);
+}
+
+.card--list h3 { font-size: 17px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.card--list h3.card__sub { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line-soft); font-size: 14px; }
+.card__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(176, 141, 46, 0.35);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.timeline { margin-top: 18px; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13.6px;
+  color: var(--ink-2);
+  align-items: baseline;
+}
+.timeline li:last-child { border-bottom: 0; }
+.timeline__year {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+.timeline em { color: var(--ink); font-weight: 600; }
+
+.card--list .chips { margin-top: 16px; }
+
+.nav > a.is-current { color: var(--ink); }
+.nav > a.is-current::after { width: 100%; }
+
+.shelf-item .book { position: relative; inset: auto; height: 100%; }
+.shelf-item .book__face { padding: 14px 10px 12px 18px; }
+.shelf-item .book__title { font-size: 12.5px; line-height: 1.4; }
+.shelf-item .book__kicker { font-size: 7px; letter-spacing: 0.18em; }
+.shelf-item .book__pub { font-size: 8px; }
+
+/* ───────────── Contact ───────────── */
+
+.section--contact {
+  background:
+    radial-gradient(120% 120% at 8% 0%, #2a241d 0%, #171310 55%, #100d0b 100%);
+  color: var(--cream);
+  overflow: hidden;
+}
+.section--contact::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: -20%;
+  width: 520px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(217, 189, 116, 0.2), transparent 62%);
+  pointer-events: none;
+}
+
+.contact__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(26px, 4vw, 60px);
+  align-items: start;
+}
+
+.contact__intro h2 { font-size: clamp(26px, 3.4vw, 42px); }
+.contact__intro h2 em { color: var(--gold-soft); }
+.contact__intro > p { margin-top: 18px; color: rgba(246, 241, 232, 0.72); font-size: 15.5px; max-width: 40ch; }
+
+.contact__direct { margin-top: 34px; display: grid; gap: 2px; }
+.contact__direct li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(246, 241, 232, 0.14);
+  align-items: baseline;
+}
+.contact__direct li:last-child { border-bottom: 1px solid rgba(246, 241, 232, 0.14); }
+.contact__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 232, 0.45);
+}
+.contact__direct a, .contact__direct span:not(.contact__label) {
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+.contact__direct a { border-bottom: 1px solid rgba(217, 189, 116, 0.4); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
+.contact__direct a:hover { color: var(--gold-soft); border-color: var(--gold-soft); }
+
+.contact__trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.contact__trust li {
+  font-size: 12px;
+  color: rgba(246, 241, 232, 0.7);
+  border: 1px solid rgba(246, 241, 232, 0.18);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.contact__offer { margin-top: 34px; }
+.contact__offer-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 232, 0.42);
+  margin-bottom: 4px;
+}
+.contact__offer ul { display: grid; }
+.contact__offer li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(246, 241, 232, 0.1);
+  font-size: 14px;
+  color: rgba(246, 241, 232, 0.82);
+  word-break: keep-all;
+}
+.contact__offer li:last-child { border-bottom: 0; }
+.contact__offer li span {
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  color: var(--gold-soft);
+  padding-top: 1px;
+}
+
+.inquiry {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: clamp(20px, 2.4vw, 28px);
+  padding: clamp(22px, 2.8vw, 34px);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.inquiry fieldset { border: 0; padding: 0; margin: 0 0 22px; }
+.inquiry legend {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.type-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.type { position: relative; display: block; cursor: pointer; }
+.type input {
+  position: absolute;
+  opacity: 0;
+  width: 100%; height: 100%;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.type span {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-2);
+  background: rgba(246, 241, 232, 0.5);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.type input:checked + span {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+}
+.type input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+.type:hover span { border-color: rgba(23, 19, 16, 0.4); }
+
+.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.field { margin-bottom: 16px; display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: 12.5px; font-weight: 650; color: var(--ink-2); }
+.field label span { color: var(--gold); }
+
+.field input, .field textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(246, 241, 232, 0.55);
+  font: inherit;
+  font-size: 14.5px;
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.field input::placeholder, .field textarea::placeholder { color: #a89e92; }
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(176, 141, 46, 0.16);
+}
+.field.has-error input, .field.has-error textarea { border-color: #b4442f; background: rgba(180, 68, 47, 0.05); }
+.field__error { font-size: 12px; color: #b4442f; display: none; }
+.field.has-error .field__error { display: block; }
+
+.inquiry__hint { font-size: 12px; color: var(--muted); margin: 4px 0 16px; line-height: 1.55; }
+
+.inquiry__actions { display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 10px; }
+.inquiry__status { margin-top: 12px; font-size: 13px; color: var(--gold); min-height: 1.2em; }
+
+.inquiry__done {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(176, 141, 46, 0.4);
+  border-radius: 14px;
+  background: rgba(239, 224, 189, 0.28);
+}
+.inquiry__done h3 { font-size: 15px; }
+.inquiry__done p { font-size: 12.8px; color: var(--ink-3); margin-top: 8px; }
+.inquiry__done p a { color: var(--gold); border-bottom: 1px solid currentColor; }
+.inquiry__done pre {
+  margin: 14px 0 0;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 220px;
+  overflow: auto;
+  color: var(--ink-2);
+}
+.inquiry__done-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.inquiry__done-actions .btn { padding: 11px 18px; font-size: 13.5px; }
+
+/* ───────────── Footer ───────────── */
+
+.site-footer {
+  background: #0f0c0a;
+  color: rgba(246, 241, 232, 0.72);
+  padding: clamp(44px, 6vw, 72px) 0 28px;
+  font-size: 13.5px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr 1.2fr;
+  gap: clamp(24px, 4vw, 56px);
+}
+.footer__logo {
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+}
+.footer__logo span { color: var(--gold); margin: 0 6px; font-weight: 400; }
+.footer__tag { margin-top: 12px; font-size: 13px; line-height: 1.7; color: rgba(246, 241, 232, 0.5); }
+
+.footer__social { margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: rgba(246, 241, 232, 0.72);
+  transition: color 0.2s var(--ease), gap 0.2s var(--ease);
+}
+.footer__social a:hover { color: var(--gold-soft); gap: 12px; }
+.footer__social svg { flex: 0 0 auto; opacity: 0.8; }
+
+.footer__col h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 232, 0.42);
+  margin-bottom: 16px;
+}
+.footer__col ul { display: grid; gap: 10px; }
+.footer__col a { color: rgba(246, 241, 232, 0.75); transition: color 0.2s var(--ease); }
+.footer__col a:hover { color: var(--gold-soft); }
+
+.footer__biz dl { display: grid; gap: 9px; }
+.footer__biz dl > div { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 10px; }
+.footer__biz dt { color: rgba(246, 241, 232, 0.42); font-size: 12px; }
+.footer__biz dd { color: rgba(246, 241, 232, 0.78); font-size: 12.8px; line-height: 1.55; }
+
+.footer__bottom {
+  margin-top: clamp(30px, 4vw, 48px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 241, 232, 0.12);
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: rgba(246, 241, 232, 0.4);
+}
+
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: none;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(217, 189, 116, 0.5);
+}
+
+/* ───────────── Modal ───────────── */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 40px);
+}
+.modal[hidden] { display: none; }
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 12, 10, 0.62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fade 0.25s var(--ease);
+}
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+.modal__panel {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(88vh, 880px);
+  overflow: auto;
+  background: var(--paper);
+  border-radius: clamp(18px, 2.4vw, 26px);
+  box-shadow: var(--shadow-lg);
+  animation: pop 0.32s var(--ease);
+  overscroll-behavior: contain;
+}
+@keyframes pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 40px; height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.modal__close:hover { background: var(--ink); color: var(--cream); transform: rotate(90deg); }
+
+.modal__visual { width: 100%; overflow: hidden; background: var(--cream); display: flex; }
+.modal__visual svg { display: block; width: 100%; height: clamp(160px, 24vw, 230px); }
+.modal__visual .poster { position: relative; inset: auto; width: 100%; padding: 26px 30px; min-height: 0; }
+.modal__visual .poster--quote { padding: 46px 30px 26px; }
+.modal__visual .poster__text { font-size: clamp(16px, 2vw, 21px); }
+.modal__visual .book { position: relative; inset: auto; height: clamp(180px, 26vw, 240px); }
+.modal__visual .book__face { padding: 22px 24px 20px 34px; }
+.modal__visual .book__title { font-size: clamp(17px, 2.2vw, 23px); }
+
+.modal__body { padding: clamp(22px, 3vw, 34px); }
+.modal__cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.modal__body h3 { margin-top: 8px; font-size: clamp(20px, 2.6vw, 27px); }
+.modal__sub { margin-top: 8px; font-size: 14.5px; color: var(--muted); }
+.modal__content { margin-top: 20px; }
+.modal__content p { font-size: 14.5px; color: var(--ink-3); margin-bottom: 12px; line-height: 1.75; }
+.modal__content ul { margin: 14px 0 18px; display: grid; gap: 8px; }
+.modal__content ul li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.modal__content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.62em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.modal__facts {
+  margin: 18px 0 4px;
+  border-top: 1px solid var(--line-soft);
+}
+.modal__facts > div {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13.4px;
+}
+.modal__facts dt { color: var(--muted); font-size: 12.5px; font-weight: 600; }
+.modal__facts dd { color: var(--ink-2); }
+
+.modal__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
+/* ───────────── Reveal on scroll ───────────── */
+
+.reveal { opacity: 0; transform: translateY(18px); }
+.reveal.is-in { opacity: 1; transform: none; transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+
+/* ───────────── Responsive ───────────── */
+
+@media (max-width: 1100px) {
+  .masonry { column-count: 3; }
+  .awards__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card--exhib { grid-column: span 2; }
+}
+
+@media (max-width: 940px) {
+  :root { --header-h: 64px; }
+  .nav {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px clamp(18px, 4vw, 44px) 22px;
+    background: rgba(246, 241, 232, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  }
+  .nav.is-open { opacity: 1; transform: none; visibility: visible; }
+  .nav > a { padding: 15px 4px; border-bottom: 1px solid var(--line-soft); font-size: 16px; }
+  .nav > a::after { display: none; }
+  .nav__cta { margin-top: 14px; text-align: center; border-bottom: 0 !important; }
+  .burger { display: block; }
+
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__pins { height: clamp(300px, 62vw, 420px); max-width: 520px; margin-top: 10px; }
+  .about__grid { grid-template-columns: 1fr; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__biz { grid-column: span 2; }
+  .fab { display: inline-flex; }
+}
+
+@media (max-width: 720px) {
+  .masonry { column-count: 2; }
+  .hero__badges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 10px; }
+  .books__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .awards__grid { grid-template-columns: 1fr; }
+  .card--exhib { grid-column: auto; }
+  .filters {
+    position: static;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-radius: 16px;
+    padding: 8px;
+    margin-inline: -4px;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .inquiry__actions { grid-template-columns: 1fr; }
+  .modal__facts > div { grid-template-columns: 92px minmax(0, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .masonry { column-count: 2; column-gap: 10px; }
+  .pin { margin-bottom: 10px; border-radius: 14px; }
+  .pin__body { padding: 12px 12px 14px; }
+  .pin__title { font-size: 14px; }
+  .pin__sub { font-size: 12px; }
+  .pin__more { display: none; }
+  .site-footer { padding-bottom: 76px; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__biz { grid-column: auto; }
+  .footer__biz dl > div { grid-template-columns: 96px minmax(0, 1fr); }
+  .type-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  .site-header, .fab, .modal, .hero__pins, .hero__scroll { display: none !important; }
+  body { background: #fff; }
+  .section { padding: 24px 0; page-break-inside: avoid; }
+}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "김진수",
+  "alternateName": "Kim Jinsoo",
+  "jobTitle": "메이랜드AI비즈랩 대표, AICLab(AI콘텐츠융합연구소) 소장",
+  "description": "생성형 AI 활용교육과 GEO마케팅, AI 업무 자동화를 연구하고 교육하는 AI 전문가.",
+  "email": "mailto:info@aiclab2020.com",
+  "telephone": "+82-10-8921-9536",
+  "address": { "@type": "PostalAddress", "streetAddress": "서초중앙로2길 35", "addressLocality": "서초구, 서울특별시", "addressCountry": "KR" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "숙명여자대학교 인적자원개발대학원 리더십교육전공" },
+  "worksFor": { "@type": "Organization", "name": "메이랜드AI비즈랩" },
+  "knowsAbout": ["Generative Engine Optimization", "GEO마케팅", "생성형 AI 활용교육", "프롬프트 엔지니어링", "AI 에이전트", "업무 자동화", "AI 아트"],
+  "sameAs": [
+    "https://www.aiclab.kr",
+    "https://kimjinsoo.aiclab.kr",
+    "https://www.youtube.com/@AI_coach_May",
+    "https://linkedin.com/in/kim-jinsoo",
+    "https://github.com/kjs369369"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#portfolio">본문으로 바로 가기</a>
+
+<!-- ───────────── Header ───────────── -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="김진수 · AICLab 홈">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M9 22V10h2.6v4.8L18 10h3.4l-6.6 5.6L21.8 22h-3.5l-4.3-4.9L11.6 19v3z" fill="currentColor"/></svg>
+      </span>
+      <span class="brand__text">
+        <strong>김진수</strong>
+        <span>AICLab</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="주요 메뉴">
+      <a href="#about">소개</a>
+      <a href="#portfolio">포트폴리오</a>
+      <a href="#books">저서·수상</a>
+      <a class="nav__cta" href="#contact">문의하기</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span> AI 교육 · GEO마케팅 · 업무 자동화</p>
+        <h1>AI가 고객을 데려오는 시대,<br /><em>GEO마케팅</em>으로<br />비즈니스의 언어를 바꿉니다</h1>
+        <p class="hero__lead">
+          생성형 AI가 인용하는 콘텐츠를 설계하고, 비전공자도 바로 실행하는 AI 교육을 만듭니다.
+          <strong>메이랜드AI비즈랩 대표 · AICLab 소장 김진수</strong>입니다.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#portfolio">포트폴리오 보기</a>
+          <a class="btn btn--ghost" href="#contact">강의·컨설팅 문의</a>
+        </div>
+        <ul class="hero__badges" aria-label="주요 성과">
+          <li><strong>500<sup>+</sup></strong><span>누적 강의</span></li>
+          <li><strong>2,000<sup>+</sup></strong><span>교육생</span></li>
+          <li><strong>24<sup>+</sup></strong><span>저서</span></li>
+          <li><strong>6<sup>회</sup></strong><span>ART 전시</span></li>
+        </ul>
+        <p class="hero__certs">Google Certified Educator · Gemini Certified Educator · Anthropic Claude 101</p>
+      </div>
+
+      <div class="hero__pins" aria-hidden="true">
+        <div class="hero-pin hero-pin--a">
+          <svg viewBox="0 0 200 250" role="presentation">
+            <defs>
+              <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1d1a17"/><stop offset="1" stop-color="#3a2f21"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="250" fill="url(#hg1)"/>
+            <g stroke="#c9a227" stroke-width="1" fill="none" opacity=".85">
+              <circle cx="100" cy="112" r="14" fill="#c9a227" stroke="none"/>
+              <circle cx="46" cy="58" r="6"/><circle cx="158" cy="66" r="6"/>
+              <circle cx="40" cy="176" r="6"/><circle cx="160" cy="182" r="8"/>
+              <path d="M100 112 52 62M100 112 152 70M100 112 46 172M100 112 154 178"/>
+            </g>
+            <text x="100" y="222" text-anchor="middle" fill="#f7f2ea" font-size="13" font-family="Georgia,serif" letter-spacing="4">GEO</text>
+          </svg>
+        </div>
+        <div class="hero-pin hero-pin--b">
+          <svg viewBox="0 0 200 260" role="presentation">
+            <rect width="200" height="260" fill="#efe3cb"/>
+            <g fill="none" stroke="#8c6d1f" stroke-width="1.4">
+              <rect x="30" y="40" width="140" height="34" rx="4"/>
+              <rect x="30" y="90" width="140" height="34" rx="4"/>
+              <rect x="30" y="140" width="86" height="34" rx="4"/>
+              <path d="M100 57h-0M100 74v16M100 124v16M116 157h36v34h-36z"/>
+            </g>
+            <text x="30" y="212" fill="#3a3430" font-size="11" font-family="sans-serif">AI WORKFLOW</text>
+            <text x="30" y="232" fill="#8c6d1f" font-size="16" font-family="Georgia,serif">Agent · n8n · Code</text>
+          </svg>
+        </div>
+        <div class="hero-pin hero-pin--c">
+          <svg viewBox="0 0 200 210" role="presentation">
+            <rect width="200" height="210" fill="#2f4f45"/>
+            <g fill="none" stroke="#e8dcc0" stroke-width="1.2" opacity=".9">
+              <path d="M-10 170c40-70 70 10 110-40s60-70 110-40"/>
+              <path d="M-10 190c40-70 70 10 110-40s60-70 110-40"/>
+              <circle cx="140" cy="60" r="26"/>
+              <circle cx="140" cy="60" r="10" fill="#c9a227" stroke="none"/>
+            </g>
+            <text x="22" y="42" fill="#e8dcc0" font-size="11" font-family="sans-serif" letter-spacing="2">CANVAS ART</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ───────────── About ───────────── -->
+  <section class="section section--about" id="about">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="kicker">About</p>
+        <h2>도구가 아니라 <em>구조</em>를 가르칩니다</h2>
+        <p class="section__lead">
+          유아교육 현장에서 출발해, 지금은 40~60대 비전공자의 눈높이에서 AI를 설명합니다.
+          강의실에서 끝나지 않고 업무·마케팅·콘텐츠로 이어지는 실행 구조까지 함께 설계합니다.
+        </p>
+      </header>
+
+      <div class="about__grid">
+        <article class="card card--profile">
+          <div class="profile__top">
+            <div class="avatar" aria-hidden="true">
+              <span>김</span>
+            </div>
+            <div>
+              <h3>김진수 <small>Kim Jinsoo</small></h3>
+              <p class="profile__role">메이랜드AI비즈랩 대표(CEO) · AICLab 소장</p>
+            </div>
+          </div>
+          <blockquote class="quote quote--inline">
+            “개별 도구가 아닌 구조적 사고와 워크플로우 시스템을 가르칩니다.”
+          </blockquote>
+          <p>
+            GEO마케팅 전문가이자 AI 활용교육 전문가로, 기업·공공기관·대학·교육기관에서 생성형 AI 실무 교육과
+            컨설팅을 진행합니다. ChatGPT·Claude·Gemini·GPTs·AI Agent·프롬프트 엔지니어링·업무 자동화를
+            실제 업무 흐름에 연결하는 방법을 다룹니다.
+          </p>
+          <dl class="profile__facts">
+            <div><dt>학력</dt><dd>숙명여대 인적자원개발대학원 리더십교육전공 석사과정 수료</dd></div>
+            <div><dt>주요 대상</dt><dd>기업·공공기관 실무자, 교원·강사, 소상공인, 1인 전문가</dd></div>
+            <div><dt>교육 철학</dt><dd>체험 중심 실무형 — 교육 후 바로 현장에 적용되는 실행 시스템</dd></div>
+          </dl>
+          <ul class="chips chips--tight" aria-label="주요 직함">
+            <li>한국AI전문가교육협회(KAEA) 협회장</li>
+            <li>GEO마케팅연구원 부원장</li>
+            <li>한국AI거버넌스교육원 부원장</li>
+            <li>디지털융합교육원 부원장</li>
+            <li>클로드AI연구회 교수진</li>
+            <li>숙명여대 미래교육원 강사</li>
+          </ul>
+        </article>
+
+        <div class="about__pillars">
+          <article class="card card--pillar">
+            <span class="pillar__no">01</span>
+            <h3>GEO 전략 컨설팅</h3>
+            <p>ChatGPT·Gemini·Perplexity가 인용하는 콘텐츠를 설계합니다. 엔티티 정의에서 구조화 콘텐츠, 인용 검증까지.</p>
+            <a class="text-link" href="#portfolio" data-filter-jump="geo">GEO 포트폴리오 →</a>
+          </article>
+          <article class="card card--pillar">
+            <span class="pillar__no">02</span>
+            <h3>AI 교육 · 업무 자동화</h3>
+            <p>Claude Code·Skills, CLI 자동화, n8n, 바이브코딩, 맞춤형 GPTs로 반복 업무를 시스템으로 바꿉니다.</p>
+            <a class="text-link" href="#portfolio" data-filter-jump="edu">교육 포트폴리오 →</a>
+          </article>
+          <article class="card card--pillar">
+            <span class="pillar__no">03</span>
+            <h3>AI 아트 · 전시 디렉팅</h3>
+            <p>캔버스 아트 전시 6회 주최. 서울국제AI영화제·통일부·농림수산부 공모전 심사위원으로 활동합니다.</p>
+            <a class="text-link" href="#portfolio" data-filter-jump="art">아트 포트폴리오 →</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="venues">
+        <p class="venues__label">주요 출강 · 협업 기관</p>
+        <ul class="venues__list">
+          <li>공정거래위원회</li>
+          <li>국민대학교</li>
+          <li>안양대학교</li>
+          <li>KINTEX</li>
+          <li>국립세종도서관</li>
+          <li>목포해양대학교</li>
+          <li>숙명여대 미래교육원</li>
+          <li>대한상공회의소 서울기술교육센터</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Portfolio ───────────── -->
+  <section class="section section--portfolio" id="portfolio">
+    <div class="wrap">
+      <header class="section__head section__head--row">
+        <div>
+          <p class="kicker">Portfolio</p>
+          <h2>일과 기록의 <em>핀보드</em></h2>
+          <p class="section__lead">강의, 컨설팅, 저서, 전시와 수상까지 — 카드를 눌러 자세히 볼 수 있습니다.</p>
+        </div>
+        <p class="pin-count" id="pinCount" aria-live="polite"></p>
+      </header>
+
+      <div class="filters" role="group" aria-label="포트폴리오 카테고리 필터">
+        <button class="chip is-active" data-filter="all" aria-pressed="true">전체</button>
+        <button class="chip" data-filter="geo" aria-pressed="false">GEO마케팅</button>
+        <button class="chip" data-filter="edu" aria-pressed="false">AI 교육·자동화</button>
+        <button class="chip" data-filter="book" aria-pressed="false">저서·출간</button>
+        <button class="chip" data-filter="art" aria-pressed="false">AI 아트·전시</button>
+        <button class="chip" data-filter="award" aria-pressed="false">수상·자격</button>
+      </div>
+
+      <div class="masonry" id="grid"></div>
+
+      <noscript>
+        <div class="noscript">
+          <h3>주요 활동 요약</h3>
+          <ul>
+            <li>GEO마케팅 전략 컨설팅 — 생성형 AI가 인용하는 콘텐츠·엔티티 구조 설계</li>
+            <li>AI 에이전트·업무 자동화 — Claude Code/Skills, CLI 자동화, n8n, 바이브코딩, 맞춤형 GPTs</li>
+            <li>기업·공공기관·대학 출강 및 강사 양성 — 누적 강의 500회+, 교육생 2,000명+</li>
+            <li>AI 아트·전시 디렉팅 — 캔버스 아트 전시 6회 주최, 국내 AI 영화제·공모전 심사</li>
+            <li>저서 24권+ — 『이것이 GEO마케팅이다』, 『AI Agent가 공무를 바꾼다』, 『프롬프트를 만드는 프롬프트 GPTs &amp; Gems』 등</li>
+          </ul>
+        </div>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ───────────── Books & Awards ───────────── -->
+  <section class="section section--books" id="books">
+    <div class="wrap">
+      <header class="section__head section__head--row">
+        <div>
+          <p class="kicker">Publications &amp; Awards</p>
+          <h2>저서 <em>24권+</em>, 그리고 기록</h2>
+          <p class="section__lead">GEO마케팅부터 AI 자동화·AI 리터러시까지, 현장의 질문을 책으로 정리해 왔습니다.</p>
+        </div>
+        <p class="books__meta">두온교육 · 미디어북 · 성안당</p>
+      </header>
+
+      <div class="books__grid" id="shelf"></div>
+
+      <div class="awards__grid">
+        <article class="card card--list">
+          <h3><span class="card__label">수상</span> Awards</h3>
+          <ul class="timeline">
+            <li><span class="timeline__year">2025</span><span>생성형AI강사대상 <em>AI기술강의부문</em></span></li>
+            <li><span class="timeline__year">2025</span><span>KACF 대한민국인공지능영화제 <em>스페셜상</em></span></li>
+            <li><span class="timeline__year">2024</span><span>하남 AI 뮤직 무비 영화제 AI아트 부문 <em>국회의원 최우수상</em></span></li>
+            <li><span class="timeline__year">2023</span><span>인공지능콘텐츠 강사경진대회 <em>대상</em></span></li>
+            <li><span class="timeline__year">2023</span><span>아시아리더대상 <em>아시아미래산업기술 발전부문</em></span></li>
+          </ul>
+        </article>
+
+        <article class="card card--list">
+          <h3><span class="card__label">심사</span> Jury</h3>
+          <ul class="timeline">
+            <li><span class="timeline__year">2025</span><span>SIAFF 서울국제AI영화제 심사</span></li>
+            <li><span class="timeline__year">2025</span><span>농림수산부 생성형AI활용 미래 농업 콘텐츠 공모전 <em>‘AGRI TED U’</em> 심사</span></li>
+            <li><span class="timeline__year">2024</span><span>통일부 프롬프톤 대회 심사</span></li>
+          </ul>
+          <h3 class="card__sub"><span class="card__label">자격</span> Certified</h3>
+          <ul class="chips chips--tight">
+            <li>Anthropic Claude 101</li>
+            <li>Google Certified Educator</li>
+            <li>Gemini Certified Educator</li>
+            <li>Prompt Engineer</li>
+            <li>AI리터러시강사</li>
+            <li>인공지능콘텐츠 강사 1급</li>
+            <li>GEO마케팅컨설턴트</li>
+          </ul>
+        </article>
+
+        <article class="card card--list card--exhib">
+          <h3><span class="card__label">전시</span> Canvas Art</h3>
+          <ul class="timeline">
+            <li><span class="timeline__year">2026.03</span><span>ART전시회 <em>‘공존’</em> · 돈화문갤러리</span></li>
+            <li><span class="timeline__year">2025.08</span><span>ART전시회 <em>‘쉼의 온도’</em> · 돈화문갤러리</span></li>
+            <li><span class="timeline__year">2025.05</span><span>ART전시회 <em>‘사랑의 결’</em> · 돈화문갤러리</span></li>
+            <li><span class="timeline__year">2025.02</span><span>ART전시회 <em>‘봄과 생명’</em> · 돈화문갤러리</span></li>
+            <li><span class="timeline__year">2025.02</span><span>ART전시회 <em>‘치유’</em> · 성수 연리단길 스페이스 큐</span></li>
+            <li><span class="timeline__year">2025.01</span><span>AI아트 <em>공감과 소통</em> 전시회 · 돈화문갤러리</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Contact ───────────── -->
+  <section class="section section--contact" id="contact">
+    <div class="wrap contact__grid">
+      <div class="contact__intro">
+        <p class="kicker kicker--light">Contact</p>
+        <h2>강의 · 컨설팅 <em>문의</em></h2>
+        <p>
+          기업·공공기관 AI 특강, GEO마케팅 전략 컨설팅, AI 에이전트·자동화 워크숍, 1:1 코칭까지.
+          현장과 목표를 알려 주시면 과정안과 일정을 함께 설계합니다.
+        </p>
+        <ul class="contact__direct">
+          <li>
+            <span class="contact__label">직통 전화</span>
+            <a href="tel:+821089219536">010-8921-9536</a>
+          </li>
+          <li>
+            <span class="contact__label">이메일</span>
+            <a href="mailto:info@aiclab2020.com">info@aiclab2020.com</a>
+          </li>
+          <li>
+            <span class="contact__label">소재지</span>
+            <span>서울특별시 서초구 서초중앙로2길 35 (서초동)</span>
+          </li>
+        </ul>
+        <ul class="contact__trust">
+          <li>강의 500회+</li>
+          <li>교육생 2,000명+</li>
+          <li>저서 24권+</li>
+          <li>KAEA 협회장</li>
+        </ul>
+
+        <div class="contact__offer">
+          <p class="contact__offer-label">이런 일을 함께합니다</p>
+          <ul>
+            <li><span>01</span>기업·공공기관·대학 AI 특강과 교원연수</li>
+            <li><span>02</span>GEO마케팅 진단과 콘텐츠 전략 컨설팅</li>
+            <li><span>03</span>AI 에이전트·업무 자동화 워크숍</li>
+            <li><span>04</span>AI 강사 양성 과정과 1:1 코칭</li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="inquiry" id="inquiryForm" novalidate>
+        <fieldset class="inquiry__types">
+          <legend>문의 유형</legend>
+          <div class="type-grid">
+            <label class="type"><input type="radio" name="type" value="기업·공공기관 AI 특강" checked /><span>기업·공공기관<br />AI 특강</span></label>
+            <label class="type"><input type="radio" name="type" value="GEO마케팅 전략 컨설팅" /><span>GEO마케팅<br />전략 컨설팅</span></label>
+            <label class="type"><input type="radio" name="type" value="AI 에이전트·자동화 워크숍" /><span>AI 에이전트·<br />자동화 워크숍</span></label>
+            <label class="type"><input type="radio" name="type" value="1:1 코칭·협업" /><span>1:1 코칭·협업</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">성함 <span aria-hidden="true">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="홍길동" required />
+          </div>
+          <div class="field">
+            <label for="f-org">소속 / 기관</label>
+            <input id="f-org" name="org" type="text" autocomplete="organization" placeholder="회사·부서·직함" />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-contact">연락처 <span aria-hidden="true">*</span></label>
+            <input id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="010-0000-0000 또는 이메일" required />
+          </div>
+          <div class="field">
+            <label for="f-when">희망 일정</label>
+            <input id="f-when" name="when" type="text" placeholder="예: 2026년 1월 중, 3시간" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-message">문의 내용 <span aria-hidden="true">*</span></label>
+          <textarea id="f-message" name="message" rows="5" placeholder="대상 인원, 다루고 싶은 주제, 기대하는 결과를 적어 주세요." required></textarea>
+        </div>
+
+        <p class="inquiry__hint">정적 페이지라 자동 발송되지 않습니다. 아래 버튼을 누르면 메일 앱에 내용이 채워진 상태로 열립니다.</p>
+
+        <div class="inquiry__actions">
+          <button type="submit" class="btn btn--primary btn--block">메일로 문의 보내기</button>
+          <button type="button" class="btn btn--ghost" id="copyBtn">내용 복사</button>
+        </div>
+        <p class="inquiry__status" id="formStatus" role="status" aria-live="polite"></p>
+
+        <div class="inquiry__done" id="donePanel" hidden>
+          <h3>문의 내용을 준비했습니다</h3>
+          <p>메일 앱이 열리지 않았다면, 아래 내용을 복사해 <a href="mailto:info@aiclab2020.com">info@aiclab2020.com</a>으로 보내 주세요. 급하신 건은 <a href="tel:+821089219536">010-8921-9536</a>으로 연락 주십시오.</p>
+          <pre id="donePreview" tabindex="0" aria-label="문의 내용 미리보기"></pre>
+          <div class="inquiry__done-actions">
+            <button type="button" class="btn btn--primary" id="copyAgain">내용 복사</button>
+            <a class="btn btn--ghost" id="mailtoAgain" href="mailto:info@aiclab2020.com">메일 앱 다시 열기</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ───────────── Footer ───────────── -->
+<footer class="site-footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <p class="footer__logo">김진수<span>·</span>AICLab</p>
+      <p class="footer__tag">AI가 고객을 데려오는 시대,<br />GEO마케팅으로 비즈니스의 언어를 바꿉니다.</p>
+      <ul class="footer__social" aria-label="채널">
+        <li><a href="https://www.aiclab.kr" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 2c3 3.4 3 16.6 0 20M12 2c-3 3.4-3 16.6 0 20" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          AICLab 공식</a></li>
+        <li><a href="https://kimjinsoo.aiclab.kr" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 20c1.5-3.4 4-5 6-5s4.5 1.6 6 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          김진수 프로필</a></li>
+        <li><a href="https://www.youtube.com/@AI_coach_May" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+          YouTube 메이TV</a></li>
+        <li><a href="https://linkedin.com/in/kim-jinsoo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7.2v.2M11 17v-4.2c0-1.6 1-2.6 2.4-2.6S16 11.2 16 12.8V17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          LinkedIn</a></li>
+        <li><a href="https://github.com/kjs369369" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 19c-4 1.2-4-2.2-6-2.7m12 5.2v-3.4c0-1 .1-1.4-.5-2 3-.3 5-1.5 5-5.2 0-1.2-.4-2.2-1-3 .3-.9.3-2-.1-3 0 0-1.4-.4-3.6 1.2a12 12 0 0 0-6 0C6.6 4.7 5.2 5.1 5.2 5.1c-.4 1-.4 2.1-.1 3-.6.8-1 1.8-1 3 0 3.7 2 4.9 5 5.2-.4.4-.5.9-.5 1.5V21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3>바로가기</h3>
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#portfolio">포트폴리오</a></li>
+        <li><a href="#books">저서·수상</a></li>
+        <li><a href="#contact">강의·컨설팅 문의</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col footer__biz">
+      <h3>사업자 정보</h3>
+      <dl>
+        <div><dt>상호</dt><dd>메이랜드AI비즈랩</dd></div>
+        <div><dt>대표</dt><dd>김진수</dd></div>
+        <div><dt>사업자등록번호</dt><dd>828-75-00406</dd></div>
+        <div><dt>주소</dt><dd>서울특별시 서초구 서초중앙로2길 35 (서초동)</dd></div>
+        <div><dt>문의</dt><dd><a href="mailto:info@aiclab2020.com">info@aiclab2020.com</a> · <a href="tel:+821089219536">010-8921-9536</a></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <p>© <span id="year">2026</span> 김진수 · 메이랜드AI비즈랩. All rights reserved.</p>
+    <p class="footer__note">AI 교육 · GEO마케팅 · 업무 자동화 · AI 아트</p>
+  </div>
+</footer>
+
+<a class="fab" href="#contact" aria-label="강의·컨설팅 문의하기">문의</a>
+
+<!-- ───────────── Modal ───────────── -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__backdrop" data-close="1"></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__close" data-close="1" aria-label="닫기">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal__visual" id="modalVisual"></div>
+    <div class="modal__body">
+      <p class="modal__cat" id="modalCat"></p>
+      <h3 id="modalTitle"></h3>
+      <p class="modal__sub" id="modalSub"></p>
+      <div class="modal__content" id="modalContent"></div>
+      <div class="modal__actions">
+        <button class="btn btn--primary" id="modalAsk" type="button">이 분야로 문의하기</button>
+        <a class="btn btn--ghost" id="modalLink" href="#" target="_blank" rel="noopener" hidden>자세히 보기</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================
+   김진수 · AICLab — app.js
+   카드 데이터 · 핀터레스트 메이슨리 · 필터 · 상세 모달 · 문의 폼
+   ========================================================== */
+(function () {
+  "use strict";
+
+  /* ───────────── 팔레트 ───────────── */
+  const P = {
+    ink:   { bg: "#1b1714", bg2: "#2e2620", fg: "#f6f1e8", accent: "#d9bd74", line: "rgba(217,189,116,.42)" },
+    gold:  { bg: "#e9d9ab", bg2: "#d6bd82", fg: "#2a2118", accent: "#8c6d1f", line: "rgba(42,33,24,.26)" },
+    sage:  { bg: "#2f4f45", bg2: "#243d35", fg: "#eef2ec", accent: "#d9bd74", line: "rgba(238,242,236,.32)" },
+    clay:  { bg: "#a4553a", bg2: "#84402a", fg: "#fbeee6", accent: "#f2d4a4", line: "rgba(251,238,230,.36)" },
+    plum:  { bg: "#43324d", bg2: "#31233d", fg: "#f4ecf2", accent: "#d9bd74", line: "rgba(244,236,242,.3)" },
+    navy:  { bg: "#22334a", bg2: "#17243c", fg: "#e9eef5", accent: "#d9bd74", line: "rgba(233,238,245,.3)" },
+    paper: { bg: "#f0e7d5", bg2: "#e0d2b6", fg: "#2c2621", accent: "#a4553a", line: "rgba(44,38,33,.22)" }
+  };
+
+  const CAT_LABEL = {
+    geo: "GEO마케팅",
+    edu: "AI 교육·자동화",
+    book: "저서·출간",
+    art: "AI 아트·전시",
+    award: "수상·자격"
+  };
+
+  const ASK_LABEL = {
+    geo: "GEO 컨설팅 문의",
+    edu: "AI 특강·워크숍 문의",
+    book: "강연·집필 문의",
+    art: "AI 아트 협업 문의",
+    award: "강연 문의"
+  };
+
+  const ASK_DEFAULT = {
+    geo: "GEO마케팅 전략 컨설팅",
+    edu: "기업·공공기관 AI 특강",
+    book: "기업·공공기관 AI 특강",
+    art: "1:1 코칭·협업",
+    award: "기업·공공기관 AI 특강"
+  };
+
+  /* ───────────── SVG 아트 ───────────── */
+  let uid = 0;
+
+  function frame(h, p, inner) {
+    const id = "g" + (++uid);
+    return `<svg viewBox="0 0 400 ${h}" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
+      <defs>
+        <linearGradient id="${id}" x1="0" y1="0" x2="0.8" y2="1">
+          <stop offset="0" stop-color="${p.bg}"/><stop offset="1" stop-color="${p.bg2}"/>
+        </linearGradient>
+        <pattern id="${id}d" width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="1.4" cy="1.4" r="1" fill="${p.fg}" opacity=".1"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="${h}" fill="url(#${id})"/>
+      <rect width="400" height="${h}" fill="url(#${id}d)"/>
+      ${inner}
+    </svg>`;
+  }
+
+  const ART = {
+    /* GEO — 엔티티 네트워크 */
+    network(p, h) {
+      const cy = h * 0.52;
+      const nodes = [
+        [72, cy - h * 0.28], [318, cy - h * 0.22], [54, cy + h * 0.24], [330, cy + h * 0.28],
+        [150, cy + h * 0.34], [268, cy - h * 0.36]
+      ];
+      let g = `<g stroke="${p.line}" stroke-width="1" fill="none">
+        <circle cx="200" cy="${cy}" r="${h * 0.2}" opacity=".45"/>
+        <circle cx="200" cy="${cy}" r="${h * 0.31}" opacity=".25"/>
+        <circle cx="200" cy="${cy}" r="${h * 0.42}" opacity=".14"/>`;
+      nodes.forEach((n) => { g += `<path d="M200 ${cy} L${n[0]} ${n[1]}"/>`; });
+      g += `</g><g fill="${p.accent}"><circle cx="200" cy="${cy}" r="9"/>`;
+      nodes.forEach((n, i) => { g += `<circle cx="${n[0]}" cy="${n[1]}" r="${i % 2 ? 4 : 6}" opacity=".9"/>`; });
+      g += `</g>`;
+      g += `<g fill="${p.fg}" font-family="sans-serif" font-size="9.5" opacity=".62" letter-spacing="1">
+        <text x="26" y="${h - 30}">ENTITY</text>
+        <text x="300" y="${h - 30}">CITATION</text>
+      </g>`;
+      g += `<text x="200" y="${h - 30}" text-anchor="middle" fill="${p.fg}" font-family="Georgia,serif" font-size="13" letter-spacing="5" opacity=".9">GEO</text>`;
+      return frame(h, p, g);
+    },
+
+    /* 업무 자동화 흐름 */
+    flow(p, h) {
+      let g = `<g fill="none" stroke="${p.line}" stroke-width="1.2">`;
+      const bw = 132, x = 134, y0 = h * 0.16, gap = h * 0.2;
+      for (let i = 0; i < 3; i++) {
+        g += `<rect x="${x}" y="${y0 + i * gap}" width="${bw}" height="${h * 0.115}" rx="9"/>`;
+        if (i < 2) g += `<path d="M200 ${y0 + i * gap + h * 0.115} v${gap - h * 0.115}"/>`;
+      }
+      g += `<path d="M60 ${y0 + h * 0.06} H${x}" stroke-dasharray="3 4"/><path d="M${x + bw} ${y0 + h * 0.06} H340" stroke-dasharray="3 4"/>`;
+      g += `<circle cx="60" cy="${y0 + h * 0.06}" r="4" fill="${p.accent}" stroke="none"/>`;
+      g += `<circle cx="340" cy="${y0 + h * 0.06}" r="4" fill="${p.accent}" stroke="none"/>`;
+      g += `</g>`;
+      g += `<g fill="${p.fg}" font-family="sans-serif" font-size="10.5" opacity=".85" letter-spacing=".5">
+        <text x="158" y="${y0 + h * 0.068}">수집 · 입력</text>
+        <text x="158" y="${y0 + gap + h * 0.068}">AI 처리</text>
+        <text x="158" y="${y0 + gap * 2 + h * 0.068}">발행 · 자동화</text>
+      </g>`;
+      g += `<text x="200" y="${h - 26}" text-anchor="middle" fill="${p.accent}" font-family="sans-serif" font-size="9.5" letter-spacing="3">WORKFLOW</text>`;
+      return frame(h, p, g);
+    },
+
+    /* 터미널 스타일 */
+    terminal(p, h) {
+      let g = `<rect x="34" y="${h * 0.16}" width="332" height="${h * 0.62}" rx="12" fill="rgba(0,0,0,.28)" stroke="${p.line}"/>`;
+      g += `<g fill="${p.accent}"><circle cx="54" cy="${h * 0.16 + 16}" r="3.2"/><circle cx="66" cy="${h * 0.16 + 16}" r="3.2" opacity=".6"/><circle cx="78" cy="${h * 0.16 + 16}" r="3.2" opacity=".35"/></g>`;
+      const lines = [
+        [p.accent, "$ claude code"],
+        [p.fg, "› skill: geo-brief"],
+        [p.fg, "› run workflow.md"],
+        [p.accent, "✓ published 12 assets"]
+      ];
+      let y = h * 0.16 + 52;
+      lines.forEach((l, i) => {
+        g += `<text x="56" y="${y}" fill="${l[0]}" font-family="ui-monospace,Menlo,monospace" font-size="11.5" opacity="${i === 3 ? 1 : 0.85}">${l[1]}</text>`;
+        y += 26;
+      });
+      g += `<rect x="56" y="${y - 14}" width="${h * 0.05}" height="12" fill="${p.accent}" opacity=".7"/>`;
+      return frame(h, p, g);
+    },
+
+    /* SEO vs GEO 비교 */
+    compare(p, h) {
+      const mid = 200;
+      let g = `<line x1="${mid}" y1="${h * 0.14}" x2="${mid}" y2="${h * 0.86}" stroke="${p.line}" stroke-dasharray="2 5"/>`;
+      g += `<text x="100" y="${h * 0.16}" text-anchor="middle" fill="${p.fg}" font-family="Georgia,serif" font-size="15" letter-spacing="3" opacity=".55">SEO</text>`;
+      g += `<text x="300" y="${h * 0.16}" text-anchor="middle" fill="${p.accent}" font-family="Georgia,serif" font-size="15" letter-spacing="3">GEO</text>`;
+      const rows = ["키워드 순위", "클릭 유도", "페이지 최적화", "AI 인용 · 추천"];
+      rows.forEach((r, i) => {
+        const y = h * 0.28 + i * (h * 0.145);
+        g += `<circle cx="66" cy="${y - 4}" r="3" fill="${p.fg}" opacity=".3"/>`;
+        g += `<text x="82" y="${y}" fill="${p.fg}" font-family="sans-serif" font-size="10.5" opacity=".55">${r}</text>`;
+        g += `<circle cx="266" cy="${y - 4}" r="4" fill="${p.accent}"/>`;
+        g += `<text x="282" y="${y}" fill="${p.fg}" font-family="sans-serif" font-size="10.5" opacity=".9">${r}</text>`;
+      });
+      g += `<path d="M250 ${h * 0.72} l-8 8 l8 8" fill="none" stroke="${p.accent}" stroke-width="1.4" opacity=".8"/>`;
+      return frame(h, p, g);
+    },
+
+    /* 강의장 */
+    lecture(p, h) {
+      let g = `<rect x="96" y="${h * 0.14}" width="208" height="${h * 0.26}" rx="6" fill="rgba(0,0,0,.22)" stroke="${p.line}"/>`;
+      g += `<path d="M186 ${h * 0.22} l24 14 l-24 14 z" fill="${p.accent}" opacity=".85"/>`;
+      g += `<g fill="${p.accent}" opacity=".5">`;
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 7; c++) {
+          const x = 44 + c * 46 + (r % 2 ? 12 : 0);
+          const y = h * 0.56 + r * 32;
+          g += `<rect x="${x}" y="${y}" width="26" height="15" rx="5"/>`;
+        }
+      }
+      g += `</g><g fill="${p.fg}" opacity=".28">`;
+      for (let r = 0; r < 2; r++) {
+        for (let c = 0; c < 5; c++) {
+          g += `<circle cx="${80 + c * 62 + (r % 2 ? 26 : 0)}" cy="${h * 0.56 + r * 32 + 8}" r="5"/>`;
+        }
+      }
+      g += `</g>`;
+      g += `<text x="200" y="${h - 22}" text-anchor="middle" fill="${p.fg}" font-family="sans-serif" font-size="9.5" letter-spacing="3" opacity=".55">LECTURE · WORKSHOP</text>`;
+      return frame(h, p, g);
+    },
+
+    /* AI 아트 — 캔버스 붓질 */
+    canvas(p, h, seed) {
+      const s = seed || 1;
+      let g = `<g fill="none" stroke="${p.accent}" stroke-linecap="round">`;
+      g += `<circle cx="${300 - s * 12}" cy="${h * 0.26}" r="${h * 0.11}" stroke-width="1.2" opacity=".85"/>`;
+      g += `<circle cx="${300 - s * 12}" cy="${h * 0.26}" r="${h * 0.055}" fill="${p.accent}" stroke="none" opacity=".9"/>`;
+      for (let i = 0; i < 4; i++) {
+        const y = h * 0.42 + i * (h * 0.12) + s * 4;
+        g += `<path d="M-20 ${y} C ${90 + i * 20} ${y - 46}, ${180 - i * 12} ${y + 40}, 430 ${y - 26}"
+          stroke="${p.fg}" stroke-width="${1.4 - i * 0.2}" opacity="${0.5 - i * 0.08}"/>`;
+      }
+      g += `<path d="M40 ${h * 0.86} C 140 ${h * 0.72}, 230 ${h * 0.98}, 380 ${h * 0.78}" stroke="${p.accent}" stroke-width="2.2" opacity=".75"/>`;
+      g += `</g>`;
+      g += `<text x="34" y="${h - 26}" fill="${p.fg}" font-family="Georgia,serif" font-size="11" letter-spacing="3" opacity=".6">CANVAS ART</text>`;
+      return frame(h, p, g);
+    },
+
+    /* 메달 */
+    medal(p, h) {
+      const cy = h * 0.42;
+      let g = `<g><path d="M182 ${cy - 40} l-24 76 h20 l22 -60z" fill="${p.accent}" opacity=".55"/>`;
+      g += `<path d="M218 ${cy - 40} l24 76 h-20 l-22 -60z" fill="${p.accent}" opacity=".4"/>`;
+      g += `<circle cx="200" cy="${cy}" r="44" fill="none" stroke="${p.accent}" stroke-width="1.6"/>`;
+      g += `<circle cx="200" cy="${cy}" r="34" fill="${p.accent}" opacity=".18"/>`;
+      g += `<path d="M200 ${cy - 15} l4.6 9.6 10.4 1.5 -7.6 7.4 1.8 10.5 -9.2 -4.9 -9.2 4.9 1.8 -10.5 -7.6 -7.4 10.4 -1.5z" fill="${p.accent}"/>`;
+      for (let i = 0; i < 24; i++) {
+        const a = (i / 24) * Math.PI * 2;
+        g += `<line x1="${200 + Math.cos(a) * 50}" y1="${cy + Math.sin(a) * 50}" x2="${200 + Math.cos(a) * 56}" y2="${cy + Math.sin(a) * 56}" stroke="${p.accent}" stroke-width="1" opacity=".45"/>`;
+      }
+      g += `</g><text x="200" y="${h - 26}" text-anchor="middle" fill="${p.fg}" font-family="sans-serif" font-size="9.5" letter-spacing="3" opacity=".6">AWARD</text>`;
+      return frame(h, p, g);
+    },
+
+    /* 코드 그리드 — 바이브코딩 */
+    grid(p, h) {
+      let g = `<g>`;
+      const cell = 34, cols = 7, startX = 60, startY = h * 0.18;
+      for (let r = 0; r < 6; r++) {
+        for (let c = 0; c < cols; c++) {
+          const hot = (r === 2 && c === 3) || (r === 3 && c === 4);
+          g += `<rect x="${startX + c * cell}" y="${startY + r * cell}" width="${cell - 8}" height="${cell - 8}" rx="6"
+            fill="${hot ? p.accent : "none"}" stroke="${p.line}" opacity="${hot ? 0.9 : 0.5}"/>`;
+        }
+      }
+      g += `</g>`;
+      g += `<path d="M${startX + 3 * cell + 13} ${startY + 2 * cell + 13} l26 34" stroke="${p.accent}" stroke-width="1.2" fill="none" opacity=".7"/>`;
+      g += `<text x="200" y="${h - 24}" text-anchor="middle" fill="${p.fg}" font-family="ui-monospace,Menlo,monospace" font-size="10.5" letter-spacing="2" opacity=".7">vibe coding</text>`;
+      return frame(h, p, g);
+    }
+  };
+
+  /* ───────────── HTML 포스터 ───────────── */
+  function posterQuote(c, tone) {
+    const p = P[tone];
+    return `<div class="poster poster--quote" style="--p-bg:${p.bg};--p-bg2:${p.bg2};--p-fg:${p.fg};--p-accent:${p.accent}">
+      <span class="poster__mark" aria-hidden="true">“</span>
+      <p class="poster__text">${c.quote}</p>
+      <span class="poster__by">${c.by || "김진수 · AICLab"}</span>
+    </div>`;
+  }
+
+  function posterStat(c, tone) {
+    const p = P[tone];
+    return `<div class="poster poster--stat" style="--p-bg:${p.bg};--p-bg2:${p.bg2};--p-fg:${p.fg};--p-accent:${p.accent}">
+      <span class="poster__kicker">${c.kicker || "NUMBERS"}</span>
+      <div class="poster__nums">
+        ${(c.nums || []).map((n) => `<div><strong>${n.v}</strong><span>${n.l}</span></div>`).join("")}
+      </div>
+      ${c.footnote ? `<p class="poster__foot">${c.footnote}</p>` : ""}
+    </div>`;
+  }
+
+  function posterSteps(c, tone) {
+    const p = P[tone];
+    return `<div class="poster poster--steps" style="--p-bg:${p.bg};--p-bg2:${p.bg2};--p-fg:${p.fg};--p-accent:${p.accent}">
+      <span class="poster__kicker">${c.kicker || "PROCESS"}</span>
+      <ol class="poster__steps">
+        ${(c.steps || []).map((s, i) => `<li><span>${String(i + 1).padStart(2, "0")}</span><div><strong>${s.t}</strong><em>${s.d}</em></div></li>`).join("")}
+      </ol>
+    </div>`;
+  }
+
+  function posterList(c, tone) {
+    const p = P[tone];
+    return `<div class="poster poster--list" style="--p-bg:${p.bg};--p-bg2:${p.bg2};--p-fg:${p.fg};--p-accent:${p.accent}">
+      <span class="poster__kicker">${c.kicker || "LIST"}</span>
+      <strong class="poster__head">${c.head}</strong>
+      <ul class="poster__items">
+        ${(c.items || []).map((i) => `<li>${i}</li>`).join("")}
+      </ul>
+    </div>`;
+  }
+
+  function posterBook(c, tone) {
+    const p = P[tone];
+    return `<div class="book" data-tone="${tone}" style="--p-bg:${p.bg};--p-bg2:${p.bg2};--p-fg:${p.fg};--p-accent:${p.accent}">
+      <span class="book__spine" aria-hidden="true"></span>
+      <div class="book__face">
+        <span class="book__kicker">${c.series || "AICLab"}</span>
+        <strong class="book__title">${c.lines.join("<br />")}</strong>
+        <span class="book__rule" aria-hidden="true"></span>
+        <span class="book__pub">${c.pub}</span>
+      </div>
+      <span class="book__author">김진수</span>
+    </div>`;
+  }
+
+  function visual(c, mode) {
+    if (c.kind === "book") return posterBook(c, c.tone);
+    if (c.kind === "quote") return posterQuote(c, c.tone);
+    if (c.kind === "stat") return posterStat(c, c.tone);
+    if (c.kind === "steps") return posterSteps(c, c.tone);
+    if (c.kind === "list") return posterList(c, c.tone);
+    const p = P[c.tone] || P.ink;
+    const h = mode === "modal" ? 220 : Math.round(400 / (c.ratio || 1.2));
+    return ART[c.art] ? ART[c.art](p, h, c.seed) : ART.network(p, h);
+  }
+
+  /* ───────────── 카드 데이터 ───────────── */
+  const CARDS = [
+    /* ── GEO마케팅 ── */
+    {
+      id: "geo-consulting", cat: "geo", tone: "ink", art: "network", ratio: 1.28,
+      title: "GEO 전략 컨설팅",
+      sub: "생성형 AI가 인용하는 콘텐츠를 설계합니다",
+      body: [
+        "GEO(Generative Engine Optimization)는 검색 순위를 넘어, ChatGPT·Gemini·Perplexity 같은 생성형 AI가 브랜드와 사람을 정확히 이해하고 답변에서 인용·추천하도록 정보 구조를 설계하는 전략입니다.",
+        "이름·전문 분야·활동·조직·콘텐츠가 인터넷에서 하나의 일관된 엔티티로 연결되도록 만들고, AI가 읽고 인용하기 좋은 문장과 출처를 함께 정비합니다."
+      ],
+      bullets: [
+        "엔티티 정의 — 나와 브랜드는 무엇을 하는 사람인가",
+        "구조화 콘텐츠 — 스키마·FAQ·비교형 콘텐츠 설계",
+        "인용 검증 — 주요 AI에 질문해 실제 인용 여부 추적",
+        "채널 교차 검증 — 홈페이지·블로그·SNS·언론 정보의 정합성"
+      ],
+      facts: [["저서", "『이것이 GEO마케팅이다』 · 『AI가 고객을 데려오는 시대』"], ["소속", "GEO마케팅연구원 부원장"], ["진행 형태", "전략 진단 → 로드맵 → 실행 워크숍"]],
+      link: { label: "김진수 프로필 보기", url: "https://kimjinsoo.aiclab.kr" }
+    },
+    {
+      id: "geo-quote", cat: "geo", tone: "plum", kind: "quote", ratio: 1.16,
+      title: "AI가 고객을 데려오는 시대",
+      sub: "GEO마케팅으로 비즈니스의 언어를 바꿉니다",
+      quote: "AI가 고객을 데려오는 시대, GEO마케팅으로 비즈니스의 언어를 바꿉니다",
+      body: [
+        "검색창에 질문하던 고객이 이제 AI에게 묻습니다. AI의 답변에 등장하지 않는 브랜드는 고객의 선택지에도 오르지 않습니다.",
+        "그래서 지금 필요한 것은 광고비가 아니라, AI가 읽고 인용할 수 있는 정보 구조입니다."
+      ],
+      bullets: ["콘텐츠를 만드는 일에서, 인용되는 구조를 만드는 일로", "단발성 노출이 아닌 축적되는 신뢰 자산"]
+    },
+    {
+      id: "geo-steps", cat: "geo", tone: "gold", kind: "steps", ratio: 1.24,
+      title: "GEO 실행 3단계",
+      sub: "정의하고, 구조화하고, 검증합니다",
+      kicker: "GEO PROCESS",
+      steps: [
+        { t: "엔티티 정의", d: "누구를 돕는 어떤 전문가인지 한 문장으로 고정" },
+        { t: "구조화 콘텐츠", d: "스키마·FAQ·사례·비교 콘텐츠로 근거 축적" },
+        { t: "인용 검증", d: "AI 답변을 추적하고 부족한 정보를 다시 채움" }
+      ],
+      body: ["컨설팅은 이 세 단계를 고객의 업종과 목표에 맞춰 설계하는 일입니다.", "진단 → 로드맵 → 실행 워크숍 순으로, 담당자가 남아서 계속 운영할 수 있는 구조로 만듭니다."],
+      facts: [["산출물", "엔티티 정의서 · 콘텐츠 맵 · 인용 추적 시트"], ["진행", "진단 → 로드맵 → 실행 워크숍"]]
+    },
+    {
+      id: "geo-book", cat: "geo", tone: "clay", kind: "book", ratio: 0.78,
+      title: "『AI가 고객을 데려오는 시대 — GEO마케팅 완전정복』",
+      sub: "미디어북 · 2026",
+      series: "GEO마케팅",
+      lines: ["AI가 고객을", "데려오는 시대", "GEO마케팅", "완전정복"],
+      pub: "미디어북 · 2026",
+      body: ["생성형 AI 검색 환경에서 고객을 데려오는 방법을 정리한 GEO마케팅 실전서입니다.", "엔티티 설계부터 콘텐츠 구조, 인용 추적까지 실행 순서대로 담았습니다."],
+      facts: [["출간", "2026 · 미디어북"], ["분야", "GEO마케팅 / 디지털 마케팅"]]
+    },
+    {
+      id: "geo-compare", cat: "geo", tone: "sage", art: "compare", ratio: 1.1,
+      title: "SEO에서 GEO로",
+      sub: "검색 순위를 넘어 AI의 답변으로",
+      body: ["SEO가 검색 결과 페이지에서 발견되는 일을 다뤘다면, GEO는 생성형 AI가 사람·브랜드·콘텐츠의 관계를 이해하고 답변에 활용하도록 구조를 만드는 일입니다.", "두 전략은 대체가 아니라 확장입니다. 기존 콘텐츠를 GEO 관점으로 다시 정리하면 같은 자산이 AI 답변에서도 인용됩니다."],
+      bullets: ["SEO — 키워드 · 페이지 최적화 · 클릭", "GEO — 엔티티 · 출처 신뢰 · 인용"],
+      facts: [["핵심 질문", "“AI에게 이 브랜드를 물으면 어떤 근거로 답하는가?”"]]
+    },
+    {
+      id: "geo-check", cat: "geo", tone: "paper", kind: "list", ratio: 1.14,
+      title: "GEO 진단 체크리스트",
+      sub: "지금 우리 사이트는 AI에게 어떻게 보일까",
+      kicker: "CHECK LIST",
+      head: "AI가 인용하기 좋은 상태인지 점검하는 6가지",
+      items: ["엔티티 일관성 — 이름·직함·소속 표기 통일", "전문 분야가 한 문장으로 설명되는가", "FAQ·사례 등 인용 가능한 문장 구조", "구조화 데이터(JSON-LD) 적용", "외부 채널 간 정보 불일치 여부", "주요 AI 답변 내 브랜드 언급 추적"],
+      body: ["진단은 문서 한 장으로 끝나지 않습니다. 실제 AI에 질문해 답변을 캡처하고, 빠진 근거를 콘텐츠로 채우는 순환으로 운영합니다."],
+      facts: [["진행", "기관 규모와 목표에 맞춰 협의"]]
+    },
+
+    /* ── AI 교육 · 자동화 ── */
+    {
+      id: "edu-lecture", cat: "edu", tone: "ink", art: "lecture", ratio: 1.22,
+      title: "기업 · 공공기관 AI 특강",
+      sub: "현장 업무에 바로 붙는 실습형 강의",
+      body: ["기업·공공기관·대학·교육기관에서 생성형 AI 실무 교육을 진행합니다. 기능 소개로 끝나지 않고, 참석자가 자기 업무 문서와 데이터로 직접 결과물을 만들어 봅니다.", "40~60대 비전공자 비중이 높은 현장에서도 따라올 수 있도록 난이도와 예시를 현장에 맞춰 조정합니다."],
+      bullets: ["생성형 AI 리터러시 · 프롬프트 엔지니어링", "문서·보고서·기획·강의안 제작 자동화", "GPTs·AI 에이전트 실습", "공공기관 AI 거버넌스와 활용 윤리"],
+      facts: [["누적 강의", "500회+"], ["누적 교육생", "2,000명+"], ["진행 형태", "특강 · 워크숍 · 정규 과정"]]
+    },
+    {
+      id: "edu-numbers", cat: "edu", tone: "gold", kind: "stat", ratio: 0.9,
+      title: "숫자로 보는 교육 현장",
+      sub: "500회의 강의, 2,000명의 교육생",
+      kicker: "SINCE 2023",
+      nums: [{ v: "500+", l: "누적 강의" }, { v: "2,000+", l: "누적 교육생" }],
+      footnote: "공공기관 · 대학 · 기업 · 교원연수 · CEO 과정",
+      body: ["강의 횟수보다 중요한 것은 교육 후 현장에 남는 변화입니다.", "한 번의 특강으로 끝나지 않도록, 과정안·실습 파일·복습 자료를 함께 남깁니다."],
+      facts: [["주요 대상", "기업·공공기관 실무자, 교원·강사, 소상공인, 1인 전문가"]]
+    },
+    {
+      id: "edu-agent", cat: "edu", tone: "navy", art: "flow", ratio: 1.34,
+      title: "AI 에이전트 · 업무 자동화",
+      sub: "반복 업무를 시스템으로 바꾸는 워크숍",
+      body: ["Claude Code·Skills, CLI 기반 자동화, n8n, 맞춤형 GPTs를 조합해 실제 업무 흐름을 자동화합니다.", "도구 하나를 배우는 대신, 수집 → 처리 → 발행으로 이어지는 하나의 파이프라인을 직접 완성합니다."],
+      bullets: ["자료 수집 → 요약 → 보고서 초안 자동 생성", "강의안·콘텐츠·SNS 발행 파이프라인", "사내 문서 기반 챗봇과 업무 매뉴얼 에이전트", "바이브코딩으로 만드는 업무용 웹앱"],
+      facts: [["도구", "Claude Code · Skills · n8n · GPTs · Gems"], ["형태", "특강 · 워크숍 · 실습 과정"]]
+    },
+    {
+      id: "edu-venues", cat: "edu", tone: "paper", kind: "list", ratio: 1.18,
+      title: "주요 출강 · 협업 기관",
+      sub: "공공 · 대학 · 기업 현장에서",
+      kicker: "VENUES",
+      head: "현장에서 검증된 커리큘럼",
+      items: ["공정거래위원회", "국민대학교 RISE", "안양대학교", "KINTEX", "국립세종도서관", "목포해양대학교", "숙명여대 미래교육원", "대한상공회의소 서울기술교육센터"],
+      body: ["기관별 목적에 맞춰 커리큘럼을 새로 설계합니다. 실습 데이터는 해당 기관의 실제 업무 문서를 비식별화해 사용합니다."],
+      facts: [["진행", "대면 · 온라인 · 하이브리드"]]
+    },
+    {
+      id: "edu-quote", cat: "edu", tone: "sage", kind: "quote", ratio: 1.05,
+      title: "구조를 가르칩니다",
+      sub: "도구는 바뀌어도 사고는 남습니다",
+      quote: "개별 도구가 아닌 구조적 사고와 워크플로우 시스템을 가르칩니다.",
+      body: ["새로운 AI 도구는 매달 나옵니다. 그때마다 다시 배워야 한다면 교육이 아니라 소모입니다.", "목표·역할·맥락·절차·출력 형식을 설계하는 사고를 익히면, 어떤 도구가 나와도 같은 방식으로 적용할 수 있습니다."]
+    },
+    {
+      id: "edu-trainer", cat: "edu", tone: "plum", art: "network", ratio: 1.2, seed: 2,
+      title: "AI 강사 양성 과정",
+      sub: "가르치는 사람을 길러냅니다",
+      body: ["한국AI전문가교육협회(KAEA) 협회장으로서 AI 강사 양성 과정을 운영합니다. 교안 설계, 실습 구성, 질문 대응까지 강의의 전 과정을 훈련합니다.", "클로드AI연구회 교수진, 디지털융합교육원 부원장으로서 강사 커리큘럼을 함께 만들고 있습니다."],
+      bullets: ["강의 설계 — 대상 분석과 학습 목표 설정", "교안·슬라이드·실습 파일 제작", "현장 운영과 질문 대응", "수료 후 활동 연계"],
+      facts: [["소속", "한국AI전문가교육협회 협회장 · 디지털융합교육원 부원장"], ["대상", "AI 강사 지망생 · 현직 교원 · 교육 담당자"]]
+    },
+    {
+      id: "edu-claude", cat: "edu", tone: "ink", art: "terminal", ratio: 1.06,
+      title: "Claude Code · Skills 실습",
+      sub: "CLI 기반 업무 자동화",
+      body: ["터미널에서 문서를 만들고, 데이터를 정리하고, 반복 작업을 스킬로 묶습니다. 코딩 경험이 없어도 따라올 수 있도록 환경 설정부터 함께 합니다.", "『기업 AI자동화를 위한 클로드AI활용』, 『한 권으로 끝내는 AI 자동화』의 내용을 현장 실습으로 구성합니다."],
+      bullets: ["환경 설정과 첫 실행", "업무별 스킬 설계", "문서·발표자료 자동 생성", "실패 지점과 안전장치 설계"],
+      facts: [["교재", "『기업 AI자동화를 위한 클로드AI활용』(2026)"]]
+    },
+    {
+      id: "edu-vibe", cat: "edu", tone: "gold", art: "grid", ratio: 1.26,
+      title: "바이브코딩 · 노코드",
+      sub: "비개발자가 만드는 업무용 웹앱",
+      body: ["필요한 도구가 없으면 직접 만듭니다. AI에게 요구사항을 정확히 전달하고, 결과를 검증하며, 배포까지 가는 과정을 실습합니다.", "n8n 워크플로우와 노코드 도구를 함께 써서 유지보수 가능한 형태로 남깁니다."],
+      bullets: ["요구사항을 프롬프트로 번역하기", "웹앱 · 랜딩페이지 제작", "GitHub Pages·Vercel 배포", "유지보수를 위한 문서화"],
+      facts: [["산출물", "수강생 업무에 맞춘 웹앱 · 자동화"]]
+    },
+    {
+      id: "edu-senior", cat: "edu", tone: "clay", kind: "list", ratio: 1.02,
+      title: "비전공자 눈높이 교육",
+      sub: "40~60대도 따라오는 실습 설계",
+      kicker: "APPROACH",
+      head: "어렵게 가르치지 않습니다",
+      items: ["한 화면에 한 가지 동작만", "실습은 3분 단위로 끊기", "업무 문서를 그대로 예제로", "실패해도 되돌릴 수 있는 안전장치", "강의 후 복습 자료 제공"],
+      body: ["유아교육 현장에서 시작한 교육 경험이 바탕입니다. 처음 배우는 사람이 어디서 멈추는지 알고, 그 지점을 미리 없애고 진행합니다."],
+      facts: [["학력", "숙명여대 인적자원개발대학원 리더십교육전공 석사과정 수료"]]
+    },
+
+    /* ── 저서 · 출간 ── */
+    {
+      id: "book-claude", cat: "book", tone: "ink", kind: "book", ratio: 0.78,
+      title: "『기업 AI자동화를 위한 클로드AI활용』",
+      sub: "2026",
+      series: "AI AUTOMATION",
+      lines: ["기업 AI자동화를", "위한", "클로드AI활용"],
+      pub: "2026",
+      body: ["기업 현장의 반복 업무를 Claude로 자동화하는 방법을 정리했습니다. 문서 처리, 보고서 초안, 데이터 정리까지 실무 예제 중심으로 구성했습니다."],
+      facts: [["출간", "2026"], ["분야", "AI 자동화 · 업무 효율화"]]
+    },
+    {
+      id: "book-automation", cat: "book", tone: "sage", kind: "book", ratio: 0.78,
+      title: "『한 권으로 끝내는 AI 자동화』",
+      sub: "2026",
+      series: "ONE BOOK",
+      lines: ["한 권으로", "끝내는", "AI 자동화"],
+      pub: "2026",
+      body: ["AI 자동화의 전체 지도를 한 권에 담았습니다. 무엇부터 시작하고, 어디까지 맡기고, 무엇을 사람이 확인해야 하는지 순서대로 설명합니다."],
+      facts: [["출간", "2026"], ["분야", "AI 자동화 입문·실전"]]
+    },
+    {
+      id: "book-agent", cat: "book", tone: "navy", kind: "book", ratio: 0.78,
+      title: "『AI Agent가 공무를 바꾼다』",
+      sub: "두온교육 · 2026",
+      series: "PUBLIC SECTOR",
+      lines: ["AI Agent가", "공무를", "바꾼다"],
+      pub: "두온교육 · 2026",
+      body: ["공공기관 업무에 AI 에이전트를 도입하는 방법과 사례를 다룹니다. 개인정보·보안·책임 소재까지 공공의 맥락에서 정리했습니다."],
+      facts: [["출간", "2026 · 두온교육"], ["분야", "공공행정 · AI 에이전트"]]
+    },
+    {
+      id: "book-geo", cat: "book", tone: "clay", kind: "book", ratio: 0.78,
+      title: "『이것이 GEO마케팅이다』",
+      sub: "두온교육 · 2026",
+      series: "GEO MARKETING",
+      lines: ["이것이", "GEO", "마케팅이다"],
+      pub: "두온교육 · 2026",
+      body: ["GEO마케팅의 개념과 실행 방법을 처음부터 끝까지 다룬 실전서입니다. 엔티티 구축, 콘텐츠 구조화, AI 인용 검증을 단계별로 설명합니다."],
+      facts: [["출간", "2026 · 두온교육"], ["분야", "GEO마케팅 · 콘텐츠 전략"]]
+    },
+    {
+      id: "book-geo2", cat: "book", tone: "gold", kind: "book", ratio: 0.78,
+      title: "『AI가 고객을 데려오는 시대 — GEO마케팅 완전정복』",
+      sub: "미디어북 · 2026",
+      series: "GEO COMPLETE",
+      lines: ["AI가 고객을", "데려오는 시대", "GEO마케팅", "완전정복"],
+      pub: "미디어북 · 2026",
+      body: ["AI 검색 시대에 고객이 브랜드를 발견하는 경로가 어떻게 바뀌었는지, 그 흐름에 맞춰 무엇을 준비해야 하는지 정리했습니다."],
+      facts: [["출간", "2026 · 미디어북"], ["분야", "GEO마케팅"]]
+    },
+    {
+      id: "book-prompts", cat: "book", tone: "plum", kind: "book", ratio: 0.78,
+      title: "『프롬프트를 만드는 프롬프트 GPTs & Gems』",
+      sub: "성안당 · 2025",
+      series: "PROMPT",
+      lines: ["프롬프트를", "만드는", "프롬프트", "GPTs & Gems"],
+      pub: "성안당 · 2025",
+      body: ["프롬프트를 대신 만들어 주는 프롬프트, 그리고 GPTs·Gems로 반복 업무를 도구화하는 방법을 담았습니다."],
+      facts: [["출간", "2025 · 성안당"], ["분야", "프롬프트 엔지니어링 · GPTs"]]
+    },
+    {
+      id: "book-literacy", cat: "book", tone: "paper", kind: "book", ratio: 0.78,
+      title: "『전 국민이 알아야 할 AI리터러시』",
+      sub: "미디어북 · 2025",
+      series: "AI LITERACY",
+      lines: ["전 국민이", "알아야 할", "AI리터러시"],
+      pub: "미디어북 · 2025",
+      body: ["AI를 처음 접하는 사람이 알아야 할 기본 개념과 활용 태도를 정리했습니다. 교육 현장과 강의에서 나온 질문들이 뼈대가 되었습니다."],
+      facts: [["출간", "2025 · 미디어북"], ["분야", "AI 리터러시 · 디지털 교육"]]
+    },
+    {
+      id: "book-video", cat: "book", tone: "clay", kind: "book", ratio: 0.78,
+      title: "『AI영상 비즈니스의 언어가 되다』",
+      sub: "두온교육 · 2024",
+      series: "AI VIDEO",
+      lines: ["AI영상", "비즈니스의", "언어가 되다"],
+      pub: "두온교육 · 2024",
+      body: ["AI 영상 제작이 마케팅과 브랜딩의 언어로 자리 잡는 과정을 정리했습니다. 기획부터 제작, 활용까지의 흐름을 다룹니다."],
+      facts: [["출간", "2024 · 두온교육"], ["분야", "AI 영상 · 콘텐츠"]]
+    },
+    {
+      id: "book-cf", cat: "book", tone: "ink", kind: "book", ratio: 0.78,
+      title: "『AI로 CF영상 제작비법』",
+      sub: "두온교육 · 2024",
+      series: "AI FILM",
+      lines: ["AI로", "CF영상", "제작비법"],
+      pub: "두온교육 · 2024",
+      body: ["광고 영상(CF)을 AI로 기획하고 제작하는 실무 방법을 단계별로 설명합니다. 프롬프트부터 편집·합성까지 다룹니다."],
+      facts: [["출간", "2024 · 두온교육"], ["분야", "AI 영상 제작"]]
+    },
+    {
+      id: "book-total", cat: "book", tone: "gold", kind: "stat", ratio: 0.92,
+      title: "저서 24권+",
+      sub: "GEO마케팅부터 AI 리터러시까지",
+      kicker: "PUBLICATIONS",
+      nums: [{ v: "24+", l: "저서 · 공저" }],
+      footnote: "두온교육 · 미디어북 · 성안당",
+      body: ["강의 현장에서 나온 질문을 책으로 정리해 왔습니다. 『이것이 GEO마케팅이다』, 『AI Agent가 공무를 바꾼다』, 『프롬프트를 만드는 프롬프트』 등 24권 이상을 집필·공저했습니다."],
+      facts: [["대표 저서", "GEO마케팅 2권 · AI 자동화 2권 · AI 리터러시 · AI 영상"]]
+    },
+
+    /* ── AI 아트 · 전시 ── */
+    {
+      id: "art-exhibition", cat: "art", tone: "sage", art: "canvas", ratio: 1.3, seed: 1,
+      title: "캔버스 아트 전시 6회 주최",
+      sub: "돈화문갤러리 · 성수 스페이스 큐",
+      body: ["AI로 만든 이미지를 캔버스 위에 올려 전시로 완성합니다. 기획, 작품 선정, 디렉팅, 전시 운영까지 직접 맡습니다.", "2025년 1월 첫 전시 이후 2026년 3월까지 6회의 캔버스 아트 전시를 주최했습니다."],
+      bullets: ["2026.03 ‘공존’ · 돈화문갤러리", "2025.08 ‘쉼의 온도’ · 돈화문갤러리", "2025.05 ‘사랑의 결’ · 돈화문갤러리", "2025.02 ‘봄과 생명’ · 돈화문갤러리", "2025.02 ‘치유’ · 성수 연리단길 스페이스 큐", "2025.01 ‘공감과 소통’ · 돈화문갤러리"],
+      facts: [["역할", "기획 · 디렉팅 · 운영"], ["장소", "돈화문갤러리 외"]]
+    },
+    {
+      id: "art-gongjon", cat: "art", tone: "plum", art: "canvas", ratio: 1.02, seed: 3,
+      title: "‘공존’ — 2026.3",
+      sub: "돈화문갤러리",
+      body: ["가장 최근 전시 ‘공존’은 사람과 AI, 자연과 기술이 함께 있는 상태를 캔버스에 담았습니다.", "전시 기획부터 작품 디렉팅, 현장 운영까지 직접 진행했습니다."],
+      facts: [["시기", "2026년 3월"], ["장소", "돈화문갤러리"], ["역할", "주최 · 전시 디렉팅"]]
+    },
+    {
+      id: "art-shim", cat: "art", tone: "gold", art: "canvas", ratio: 1.18, seed: 2,
+      title: "‘쉼의 온도’ — 2025.8",
+      sub: "돈화문갤러리",
+      body: ["AI 이미지에 온도라는 감각을 얹은 전시입니다. 차갑게만 여겨지던 생성 이미지에 사람의 호흡을 더하는 작업을 이어갔습니다."],
+      facts: [["시기", "2025년 8월"], ["장소", "돈화문갤러리"]]
+    },
+    {
+      id: "art-direct", cat: "art", tone: "paper", kind: "list", ratio: 1.22,
+      title: "AI 아트 · 전시 디렉팅",
+      sub: "기획에서 현장까지",
+      kicker: "DIRECTING",
+      head: "전시를 하나의 작품으로 만듭니다",
+      items: ["전시 기획 · 주제 설정", "작품 생성과 선별", "캔버스 출력 · 설치", "관람 동선과 라벨링", "개막 운영과 기록"],
+      body: ["AI 아트는 이미지 생성에서 끝나지 않습니다. 무엇을 보여주고 어떤 순서로 경험하게 할지가 전시의 완성도를 결정합니다."],
+      facts: [["경력", "캔버스 아트 전시 6회 주최 (2025~2026)"]]
+    },
+    {
+      id: "art-jury", cat: "art", tone: "navy", art: "medal", ratio: 1.12,
+      title: "AI 영화제 · 공모전 심사",
+      sub: "국내 AI 창작의 기준을 봅니다",
+      body: ["AI로 만든 영상과 콘텐츠를 심사하며 현장의 기준을 함께 만들어 왔습니다.", "심사 기준은 기술의 화려함보다 기획의 의도와 완성도, 그리고 관객에게 닿는 힘입니다."],
+      bullets: ["2025 SIAFF 서울국제AI영화제 심사", "2025 농림수산부 ‘AGRI TED U’ 공모전 심사", "2024 통일부 프롬프톤 대회 심사"],
+      facts: [["역할", "심사위원"]]
+    },
+
+    /* ── 수상 · 자격 ── */
+    {
+      id: "aw-teacher", cat: "award", tone: "gold", art: "medal", ratio: 1.04,
+      title: "2025 생성형AI강사대상",
+      sub: "AI기술강의부문",
+      body: ["생성형 AI 강의 분야에서 활동을 인정받아 AI기술강의부문 대상을 수상했습니다.", "현장에서 쌓은 강의 기록과 교육생 피드백이 바탕이 되었습니다."],
+      facts: [["수상", "2025"], ["부문", "AI기술강의부문"]]
+    },
+    {
+      id: "aw-kacf", cat: "award", tone: "ink", art: "medal", ratio: 1.08,
+      title: "2025 KACF 대한민국인공지능영화제",
+      sub: "스페셜상",
+      body: ["KACF 대한민국인공지능영화제에서 스페셜상을 수상했습니다.", "AI 영상 제작과 전시, 교육을 하나의 흐름으로 이어 온 작업이 평가받았습니다."],
+      facts: [["수상", "2025"], ["부문", "스페셜상"]]
+    },
+    {
+      id: "aw-hanam", cat: "award", tone: "clay", art: "medal", ratio: 1.0,
+      title: "2024 하남 AI 뮤직 무비 영화제",
+      sub: "AI아트 부문 국회의원 최우수상",
+      body: ["하남 AI 뮤직 무비 영화제 AI아트 부문에서 국회의원 최우수상을 수상했습니다."],
+      facts: [["수상", "2024"], ["부문", "AI아트 · 국회의원 최우수상"]]
+    },
+    {
+      id: "aw-2023", cat: "award", tone: "sage", kind: "list", ratio: 1.14,
+      title: "2023 수상 기록",
+      sub: "강사경진대회 대상 · 아시아리더대상",
+      kicker: "2023",
+      head: "두 개의 대상",
+      items: ["인공지능콘텐츠 강사경진대회 대상", "아시아리더대상 — 아시아미래산업기술 발전부문"],
+      body: ["AI 콘텐츠 강의 역량과 산업 기술 발전 기여를 함께 인정받은 해입니다."],
+      facts: [["수상", "2023 · 2건"]]
+    },
+    {
+      id: "aw-cert", cat: "award", tone: "paper", kind: "list", ratio: 1.2,
+      title: "국제 공인 자격",
+      sub: "Anthropic · Google · Gemini",
+      kicker: "CERTIFIED",
+      head: "직접 이수하고 가르치는 자격",
+      items: ["Anthropic Claude 101", "Google Certified Educator", "Gemini Certified Educator", "Prompt Engineer", "AI리터러시강사", "인공지능콘텐츠 강사 1급", "GEO마케팅컨설턴트"],
+      body: ["자격은 시작점일 뿐이지만, 가르치는 도구는 직접 써 보고 가르칩니다."],
+      facts: [["인증", "Anthropic · Google for Education · 민간 자격"]]
+    }
+  ];
+
+  /* ───────────── 렌더 ───────────── */
+  const grid = document.getElementById("grid");
+  const pinCount = document.getElementById("pinCount");
+  const filterBar = document.querySelector(".filters");
+
+  function pinHTML(c) {
+    const isSvg = !!c.art;
+    const isBook = c.kind === "book";
+    const ratio = isBook ? 0.76 : c.ratio || 1.2;
+    const visualBox =
+      isSvg || isBook
+        ? `<div class="pin__visual" style="aspect-ratio:${ratio}">${visual(c, "pin")}</div>`
+        : `<div class="pin__visual pin__visual--auto">${visual(c, "pin")}</div>`;
+    return `<article class="pin" role="button" tabindex="0" data-id="${c.id}" data-cat="${c.cat}" aria-haspopup="dialog"
+        aria-label="${c.title} — ${c.sub}" style="animation-delay:${Math.random() * 0.18}s">
+      ${visualBox}
+      <div class="pin__body">
+        <span class="pin__cat">${CAT_LABEL[c.cat]}</span>
+        <strong class="pin__title">${c.title}</strong>
+        <span class="pin__sub">${c.sub}</span>
+        <span class="pin__more">자세히 보기</span>
+      </div>
+    </article>`;
+  }
+
+  function renderGrid() {
+    grid.innerHTML = CARDS.map(pinHTML).join("");
+  }
+
+  /* 도서 선반 */
+  const shelf = document.getElementById("shelf");
+  const shelfBooks = CARDS.filter((c) => c.cat === "book" && c.kind === "book");
+  function renderShelf() {
+    shelf.innerHTML = shelfBooks
+      .map(
+        (c) => `<div class="shelf-item" title="${c.title}">${posterBook(c, c.tone)}</div>`
+      )
+      .join("");
+  }
+
+  /* ───────────── 필터 ───────────── */
+  let currentFilter = "all";
+
+  function applyFilter(f, scroll) {
+    currentFilter = f;
+    document.querySelectorAll(".filters .chip").forEach((b) => {
+      const on = b.dataset.filter === f;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    let shown = 0;
+    grid.querySelectorAll(".pin").forEach((pin) => {
+      const match = f === "all" || pin.dataset.cat === f;
+      pin.classList.toggle("is-hidden", !match);
+      if (match) shown++;
+    });
+    pinCount.textContent = `${shown}개의 핀 · ${f === "all" ? "전체" : CAT_LABEL[f]}`;
+    if (scroll) {
+      document.getElementById("portfolio").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  filterBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".chip");
+    if (btn) applyFilter(btn.dataset.filter);
+  });
+
+  document.querySelectorAll("[data-filter-jump]").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      applyFilter(a.dataset.filterJump, true);
+    });
+  });
+
+  /* ───────────── 모달 ───────────── */
+  const modal = document.getElementById("modal");
+  const mVisual = document.getElementById("modalVisual");
+  const mCat = document.getElementById("modalCat");
+  const mTitle = document.getElementById("modalTitle");
+  const mSub = document.getElementById("modalSub");
+  const mContent = document.getElementById("modalContent");
+  const mAsk = document.getElementById("modalAsk");
+  const mLink = document.getElementById("modalLink");
+  let lastFocus = null;
+  let activeCard = null;
+
+  function openModal(card) {
+    activeCard = card;
+    lastFocus = document.activeElement;
+    mVisual.innerHTML = visual(card, "modal");
+    mCat.textContent = CAT_LABEL[card.cat];
+    mTitle.textContent = card.title;
+    mSub.textContent = card.sub;
+
+    let html = "";
+    (card.body || []).forEach((p) => (html += `<p>${p}</p>`));
+    if (card.bullets && card.bullets.length) {
+      html += `<ul>${card.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`;
+    }
+    if (card.facts && card.facts.length) {
+      html += `<dl class="modal__facts">${card.facts
+        .map((f) => `<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`)
+        .join("")}</dl>`;
+    }
+    mContent.innerHTML = html;
+
+    if (card.link) {
+      mLink.hidden = false;
+      mLink.href = card.link.url;
+      mLink.textContent = card.link.label || "자세히 보기";
+    } else {
+      mLink.hidden = true;
+      mLink.removeAttribute("href");
+    }
+
+    mAsk.textContent = ASK_LABEL[card.cat] || "이 분야로 문의하기";
+    modal.hidden = false;
+    document.body.classList.add("is-locked");
+    modal.querySelector(".modal__panel").scrollTop = 0;
+    setTimeout(() => modal.querySelector(".modal__close").focus(), 30);
+  }
+
+  function closeModal() {
+    if (modal.hidden) return;
+    modal.hidden = true;
+    document.body.classList.remove("is-locked");
+    mVisual.innerHTML = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  grid.addEventListener("click", (e) => {
+    const pin = e.target.closest(".pin");
+    if (!pin) return;
+    const card = CARDS.find((c) => c.id === pin.dataset.id);
+    if (card) openModal(card);
+  });
+
+  grid.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const pin = e.target.closest(".pin");
+    if (!pin) return;
+    e.preventDefault();
+    const card = CARDS.find((c) => c.id === pin.dataset.id);
+    if (card) openModal(card);
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!modal.hidden) closeModal();
+      closeNav();
+    }
+    if (e.key === "Tab" && !modal.hidden) {
+      const focusables = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  mAsk.addEventListener("click", () => {
+    const card = activeCard;
+    closeModal();
+    if (!card) return;
+    const type = ASK_DEFAULT[card.cat] || "기업·공공기관 AI 특강";
+    const radio = document.querySelector(`input[name="type"][value="${type}"]`);
+    if (radio) radio.checked = true;
+    const msg = document.getElementById("f-message");
+    if (msg && !msg.value.trim()) {
+      msg.value = `[${card.title}] 관련 문의드립니다.`;
+    }
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => document.getElementById("f-name").focus({ preventScroll: true }), 600);
+  });
+
+  /* ───────────── 헤더 · 모바일 메뉴 ───────────── */
+  const header = document.getElementById("siteHeader");
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("primaryNav");
+
+  function onScroll() {
+    header.classList.toggle("is-stuck", window.scrollY > 12);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  function closeNav() {
+    nav.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+    burger.setAttribute("aria-label", "메뉴 열기");
+  }
+
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+  });
+
+  nav.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeNav();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!nav.classList.contains("is-open")) return;
+    if (!e.target.closest("#primaryNav") && !e.target.closest("#burger")) closeNav();
+  });
+
+  /* 스크롤 스파이 */
+  const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]')).filter(
+    (a) => !a.classList.contains("nav__cta")
+  );
+  const sections = navLinks
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          navLinks.forEach((a) =>
+            a.classList.toggle("is-current", a.getAttribute("href") === "#" + en.target.id)
+          );
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => spy.observe(s));
+
+    /* 등장 애니메이션 */
+    const revealTargets = document.querySelectorAll(
+      ".section__head, .card, .venues, .books__grid, .awards__grid, .contact__intro, .inquiry"
+    );
+    revealTargets.forEach((el) => el.classList.add("reveal"));
+    const rev = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-in");
+            rev.unobserve(en.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    revealTargets.forEach((el) => rev.observe(el));
+  }
+
+  /* ───────────── 문의 폼 ───────────── */
+  const form = document.getElementById("inquiryForm");
+  const statusEl = document.getElementById("formStatus");
+  const donePanel = document.getElementById("donePanel");
+  const donePreview = document.getElementById("donePreview");
+  const mailtoAgain = document.getElementById("mailtoAgain");
+  const MAIL = "info@aiclab2020.com";
+
+  function currentType() {
+    const r = form.querySelector('input[name="type"]:checked');
+    return r ? r.value : "기업·공공기관 AI 특강";
+  }
+
+  function buildMessage() {
+    const val = (id) => (document.getElementById(id).value || "").trim();
+    const name = val("f-name");
+    const org = val("f-org");
+    const contact = val("f-contact");
+    const when = val("f-when");
+    const msg = val("f-message");
+    const lines = [
+      "[문의 유형] " + currentType(),
+      "[성함] " + (name || "-"),
+      "[소속/기관] " + (org || "-"),
+      "[연락처] " + (contact || "-"),
+      "[희망 일정] " + (when || "-"),
+      "",
+      "[문의 내용]",
+      msg || "-",
+      "",
+      "— 김진수 · AICLab 소개 페이지에서 보냄"
+    ];
+    return {
+      subject: `[강의·컨설팅 문의] ${currentType()} — ${name || "성함 미기재"}`,
+      body: lines.join("\n")
+    };
+  }
+
+  function mailtoHref(m) {
+    return `mailto:${MAIL}?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(m.body)}`;
+  }
+
+  function setError(field, on) {
+    const wrap = field.closest(".field");
+    if (!wrap) return;
+    wrap.classList.toggle("has-error", on);
+    field.setAttribute("aria-invalid", on ? "true" : "false");
+  }
+
+  function validate() {
+    let ok = true;
+    ["f-name", "f-contact", "f-message"].forEach((id) => {
+      const el = document.getElementById(id);
+      const bad = !el.value.trim();
+      setError(el, bad);
+      if (bad) ok = false;
+    });
+    if (!ok) {
+      const firstBad = form.querySelector(".field.has-error input, .field.has-error textarea");
+      if (firstBad) firstBad.focus();
+      statusEl.textContent = "성함·연락처·문의 내용을 입력해 주세요.";
+    }
+    return ok;
+  }
+
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (err) {
+      /* fallthrough */
+    }
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function showDone(m) {
+    donePreview.textContent = `받는 사람: ${MAIL}\n제목: ${m.subject}\n\n${m.body}`;
+    mailtoAgain.href = mailtoHref(m);
+    donePanel.hidden = false;
+  }
+
+  form.addEventListener("input", (e) => {
+    if (e.target.matches("input, textarea")) setError(e.target, false);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const m = buildMessage();
+    showDone(m);
+    statusEl.textContent = "메일 앱을 엽니다… 열리지 않으면 아래 내용을 복사해 보내 주세요.";
+    window.location.href = mailtoHref(m);
+    setTimeout(() => {
+      statusEl.textContent = "메일 앱이 열리지 않으면 아래 ‘내용 복사’를 눌러 주세요.";
+    }, 1500);
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", async () => {
+    if (!validate()) return;
+    const m = buildMessage();
+    const ok = await copyText(`받는 사람: ${MAIL}\n제목: ${m.subject}\n\n${m.body}`);
+    statusEl.textContent = ok
+      ? "문의 내용을 복사했습니다. 메일이나 메신저에 붙여넣어 보내 주세요."
+      : "복사가 차단되었습니다. 아래 미리보기 내용을 직접 선택해 복사해 주세요.";
+    showDone(m);
+  });
+
+  document.getElementById("copyAgain").addEventListener("click", async () => {
+    const ok = await copyText(donePreview.textContent);
+    statusEl.textContent = ok ? "복사했습니다." : "복사가 차단되었습니다. 미리보기에서 직접 선택해 주세요.";
+  });
+
+  /* ───────────── 초기화 ───────────── */
+  document.getElementById("year").textContent = new Date().getFullYear();
+  renderGrid();
+  renderShelf();
+  applyFilter("all");
+})();
+
+</script>
+</body>
+</html>
