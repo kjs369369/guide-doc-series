@@ -719,13 +719,13 @@ em { font-style: normal; }
 .poster--quote { justify-content: space-between; gap: 14px; padding-top: 52px; }
 .poster__mark {
   position: absolute;
-  top: 6px;
-  left: 16px;
+  top: 8px;
+  left: 18px;
   font-family: var(--font-serif);
-  font-size: 62px;
+  font-size: 52px;
   line-height: 1;
   color: var(--p-accent);
-  opacity: 0.32;
+  opacity: 0.22;
   display: block;
   pointer-events: none;
 }
