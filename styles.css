@@ -716,14 +716,18 @@ em { font-style: normal; }
   opacity: 0.55;
 }
 
-.poster--quote { justify-content: space-between; gap: 18px; }
+.poster--quote { justify-content: space-between; gap: 14px; padding-top: 52px; }
 .poster__mark {
+  position: absolute;
+  top: 6px;
+  left: 16px;
   font-family: var(--font-serif);
-  font-size: 52px;
-  line-height: 0.62;
+  font-size: 62px;
+  line-height: 1;
   color: var(--p-accent);
-  opacity: 0.85;
+  opacity: 0.32;
   display: block;
+  pointer-events: none;
 }
 .poster__text {
   font-family: var(--font-serif);
@@ -1326,6 +1330,7 @@ em { font-style: normal; }
 .modal__visual { width: 100%; overflow: hidden; background: var(--cream); display: flex; }
 .modal__visual svg { display: block; width: 100%; height: clamp(160px, 24vw, 230px); }
 .modal__visual .poster { position: relative; inset: auto; width: 100%; padding: 26px 30px; min-height: 0; }
+.modal__visual .poster--quote { padding: 46px 30px 26px; }
 .modal__visual .poster__text { font-size: clamp(16px, 2vw, 21px); }
 .modal__visual .book { position: relative; inset: auto; height: clamp(180px, 26vw, 240px); }
 .modal__visual .book__face { padding: 22px 24px 20px 34px; }
